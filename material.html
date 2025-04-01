@@ -37,6 +37,7 @@
             cursor: pointer;
             box-shadow: 2px 2px 10px rgba(0, 128, 0, 0.5);
             transition: transform 0.2s;
+            text-decoration: none;
         }
         .button:hover {
             transform: scale(1.05);
@@ -70,54 +71,51 @@
 <body>
     <h1>Material Drive Links</h1>
     <div class="container">
-        <div class="button" onclick="openLink('https://drive.google.com/example1')">
-            <img src="10thclass.jpeg" alt="10th Class Materials">
+        <a href="tenth.html" class="button">
+            <img src="D:\maindti\10thclass.jpeg" alt="10th Class Materials">
             <span>10th Class Materials</span>
-        </div>
+        </a>
         <div class="button" onclick="toggleIntermediate()">
-            <img src="intermediate.jpeg" alt="Intermediate Materials">
+            <img src="D:\maindti\intermediate.jpeg" alt="Intermediate Materials">
             <span>Intermediate Materials</span>
         </div>
         <div id="intermediate-options" class="hidden">
-            <div class="button" onclick="openLink('https://drive.google.com/inter1')">
-                <img src="firstyear.jpeg" alt="Inter 1st Year">
+            <a href="interFirst.html" class="button">
+                <img src="D:\maindti\firstyear.jpeg"alt="Inter 1st Year">
                 <span>Inter 1st Year</span>
-            </div>
-            <div class="button" onclick="openLink('https://drive.google.com/inter2')">
-                <img src="secyear.jpeg" alt="Inter 2nd Year">
+            </a>
+            <a href="sec.html" class="button">
+                <img src="D:\maindti\secyear.jpeg" alt="Inter 2nd Year">
                 <span>Inter 2nd Year</span>
-            </div>
+            </a>
         </div>
-        <div class="button" onclick="openLink('https://drive.google.com/example3')">
-            <img src="mains.jpeg" alt="JEE Mains Study Material">
+        <a href="jee.html" class="button">
+            <img src="D:\maindti\mains.jpeg" alt="JEE Mains Study Material">
             <span>JEE Mains Study Material</span>
-        </div>
-        <div class="button" onclick="openLink('https://drive.google.com/example4')">
-            <img src="advance.png" alt="JEE Advanced Resources">
+        </a>
+        <a href="jee.html" class="button">
+            <img src="D:\maindti\advance.png" alt="JEE Advanced Resources">
             <span>JEE Advanced Resources</span>
-        </div>
-        <div class="button" onclick="openLink('https://drive.google.com/example5')">
-            <img src="gate.jpeg" alt="GATE Preparation">
+        </a>
+        <a href="#" class="button">
+            <img src="D:\maindti\gate.jpeg" alt="GATE Preparation">
             <span>GATE Preparation</span>
-        </div>
-        <div class="button" onclick="openLink('https://drive.google.com/example6')">
-            <img src="ipsc.jpeg" alt="UPSC Guides">
+        </a>
+        <a href="upsc.html" class="button">
+            <img src="D:\maindti\ipsc.jpeg" alt="UPSC Guides">
             <span>UPSC Guides</span>
-        </div>
-        <div class="button" onclick="openLink('https://drive.google.com/example7')">
-            <img src="railway.jpeg" alt="Railway Exam Books">
+        </a>
+        <a href="upsc.html" class="button">
+            <img src="D:\maindti\railway.jpeg" alt="Railway Exam Books">
             <span>Railway Exam Books</span>
-        </div>
-        <div class="button" onclick="openLink('https://drive.google.com/example8')">
-            <img src="ctet.jpeg" alt="CTET Preparation">
+        </a>
+        <!-- <a href="#" class="button">
+            <img src="D:\maindti\ctet.jpeg" alt="CTET Preparation">
             <span>CTET Preparation</span>
-        </div>
+        </a> -->
     </div>
 
     <script>
-        function openLink(url) {
-            window.open(url, '_blank');
-        }
         function toggleIntermediate() {
             var element = document.getElementById("intermediate-options");
             if (element.classList.contains("hidden")) {
@@ -129,3 +127,4 @@
     </script>
 </body>
 </html>
+
