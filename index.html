@@ -284,7 +284,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/4961/4961537.png" type="image/x-icon">
-    <title>Future Navigator</title>
+    <title>An AI-Powered Career Guidance Platform</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -431,7 +431,7 @@
             right: 20px;
         }
 
-        .chatbot-button {
+        /* .chatbot-button {
             background-color: #2e7d32;
             color: white;
             padding: 12px 25px;
@@ -439,6 +439,20 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+        } */
+        .chatbot-button {
+            display: block;
+            width: 100%;
+            background-color: #2e7d32;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+            text-align: center;
+            text-decoration: none;
         }
 
         .chatbot-button:hover {
@@ -488,10 +502,14 @@
         <div class="sidebar">
             <table>
                 <tr><th><h4>Resources</h4></th></tr>
+                <!-- <button class="chatbot-button">Chatbot</button>
                 <tr><td><a href="material.html">Materials</a></td></tr>
                 <tr><td><a href="sucess.html">Success Stories</a></td></tr>
-                <tr><td><a href="finalDates.html">Final Dates of Govt Exams</a></td></tr>
-                <!-- <tr><td><a href="#">Previous Year Question Papers</a></td></tr> -->
+                <tr><td><a href="finalDates.html">Final Dates of Govt Exams</a></td></tr> -->
+                <tr><td><a class="chatbot-button" href="material.html">Materials</a></td></tr>
+                <tr><td><a class="chatbot-button" href="sucess.html">Success Stories</a></td></tr>
+                <tr><td><a class="chatbot-button" href="finalDates.html">Final Dates of Govt Exams</a></td></tr>
+
             </table>
         </div>
 
