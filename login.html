@@ -236,7 +236,7 @@
             <input type="password" class="input-field" placeholder="Password" name="password" required>
             <button type="submit" class="login-button">Login</button>
         </form>
-<!--         <button class="google-button">Continue with Google</button> -->
+        <!-- <button class="google-button">Continue with Google</button> -->
         <a href="register.html" class="signup-link">Don't have an account? Sign up</a>
     </div>
 
@@ -263,7 +263,7 @@
                 if (response.ok) {
                     alert("Login successful!");
                     localStorage.setItem("token", data.token);
-                    window.location.href = "index.html"; // Redirect to home page
+                    window.location.href = "index1.html"; // Redirect to home page
                 } else {
                     alert(data.message);
                 }
