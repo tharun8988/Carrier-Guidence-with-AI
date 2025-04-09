@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student-Father Business Idea Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+    input, button {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .output {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #f1f1f1;
+      border-radius: 8px;
+      min-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Business Idea Generator</h2>
+    <input type="text" id="stream" placeholder="Enter your stream (e.g., MBBS)">
+    <input type="text" id="business" placeholder="Enter your father's business (e.g., Tea Shop)">
+    <button onclick="generateIdea()">Get Idea</button>
+    <div class="output" id="ideaOutput">Your idea will appear here...</div>
+  </div>
+
+  <script>
+    const ideas = {
+      "mbbs-coconut shop": "Educate customers on health benefits; sell coconut-based health drinks",
+      "fashion design-hardware store": "Redesign store layout and branding with a trendy look",
+      "b.com-tiffin center": "Manage cashflow, pricing, and offer bulk order packages",
+      "b.sc. botany-cycle repair shop": "Add eco-friendly ideas like plant decor or green waiting space",
+      "law-barber shop": "Help legally register and franchise the shop",
+      "b.sc. computer science-coconut farm": "Add smart irrigation, track yield via a mobile app",
+      "psychology-mechanic workshop": "Train workers in customer service and stress management",
+      "b.a. telugu-gold shop": "Write culturally themed ad campaigns in native language",
+      "b.a. english-fertilizer store": "Write impactful product descriptions and help with marketing",
+      "mbbs-tailoring business": "Design posture-friendly uniforms or scrubs",
+      "b.sc. physics-flower shop": "Use LED grow lights and energy-efficient display setups",
+      "b.a. history-vegetable vendor": "Create “heritage recipes” using fresh vegetables",
+      "b.sc. maths-tea stall": "Analyze peak hour sales to adjust quantity and reduce waste",
+      "ca-small bookstore": "Digitize accounting and suggest tax-saving strategies",
+      "journalism-two-wheeler garage": "Start a YouTube channel to review bikes and promote the shop",
+      "b.sc. chemistry-idli dosa bandhi": "Innovate with healthier dosa batter using chemistry",
+      "criminology-transport business": "Improve employee screening and safety protocols",
+      "mba-coconut selling cart": "Rebrand cart with clean uniforms, card payments, and QR codes",
+      "political science-toy shop": "Introduce educational political board games for kids",
+      "bba-firewood shop": "Diversify to eco-briquettes and promote online",
+      "b.sc. zoology-footwear store": "Suggest ergonomic shoe designs using animal movement studies",
+      "b.pharm-fruit juice shop": "Add health supplements and market immunity-boosting drinks",
+      "culinary arts-stationery store": "Offer cute kitchen-themed stationery for fun crossover",
+      "civil engineering-small juice cart": "Design space-saving and hygienic cart upgrades",
+      "music-coconut cutting stall": "Create a unique musical brand jingle to attract crowd",
+      "law-pottery shop": "Protect designs with intellectual property rights",
+      "sociology-fish vendor": "Conduct customer feedback and improve community relations",
+      "nursing-kirana shop": "Suggest cleanliness and hygiene layouts for food storage",
+      "botany-welding shop": "Add greenery inside/outside for a better environment",
+      "visual communication-fruit seller": "Rebrand with colorful posters and fresh visual packaging",
+      "b.ed-pan shop": "Offer free basic education pamphlets to customers",
+      "environmental studies-laundry shop": "Switch to eco-friendly detergents and market the change",
+      "hotel management-small provision shop": "Create organized product placement for better customer flow",
+      "ba sanskrit-painting shop": "Decorate shop with Sanskrit quotes and traditional themes",
+      "mba-small push cart": "Turn it into a branded mobile franchise model",
+      "sports science-small milk booth": "Launch protein-rich milkshake add-ons for gym-goers",
+      "aerospace-chai tapri": "Design a “space tea” concept for fun branding",
+      "b.sc. statistics-petty shop": "Track fast-moving items and reorder patterns using data",
+      "fine arts-scrap business": "Make creative recycled art products from scrap",
+      "b.a. public admin-auto garage": "Standardize rules for smooth customer service and reporting",
+      "library science-electrical store": "Organize items in a systematized catalog-style layout",
+      "film studies-sugarcane juice shop": "Promote shop via Instagram Reels and TikTok videos",
+      "philosophy-ice cream cart": "Write witty, thought-provoking quotes on the cart",
+      "ba economics-cloth ironing shop": "Suggest bulk plan pricing and employee scheduling strategy",
+      "dance-medical shop": "Add wellness and relaxation exercises for customers",
+      "robotics-street vendor": "Build a robotic tray or display to attract crowd",
+      "mbbs-tea shop": "Introduce herbal, digestive teas with medical benefits",
+      "geography-mobile recharge shop": "Suggest better shop locations based on customer traffic mapping",
+      "design (ux/ui)-cable tv recharge shop": "Create a user-friendly online recharge portal",
+      "b.a. psychology-sweet stall": "Study customer buying patterns and create mood-based offers",
+      "astronomy-toy seller": "Design star-themed toys or educational packages",
+      "cybersecurity-xerox/print shop": "Add safe digital document transfer service",
+      "horticulture-tea hotel": "Start a vertical herb garden for fresh tea ingredients",
+      "theology-general store": "Sell books and spiritual items alongside daily goods",
+      "political science-small restaurant": "Help create social awareness campaigns and CSR partnerships",
+      "mbbs-egg centre": "Promote high-protein meals with scientific health benefits",
+      "naval architecture-ice cream parlor": "Redesign interiors with a marine theme for attraction",
+      "hr management-tools store": "Train staff in communication and customer handling",
+      "photography-juice shop": "Click high-quality photos for menu boards and Instagram",
+      "fashion tech-stationery stall": "Design trendy notebooks and merchandise for students"
+    };
+
+    const similarTerms = {
+      "medical": "medical shop",
+      "medical business": "medical shop",
+      "coconut business": "coconut shop",
+      "coconut": "coconut shop",
+      "tea business": "tea shop",
+      "juice center": "juice shop",
+      "cart": "push cart",
+      "hotel": "tea hotel",
+      "restaurant": "small restaurant"
+    };
+
+    function generateIdea() {
+      const stream = document.getElementById("stream").value.toLowerCase().trim();
+      let business = document.getElementById("business").value.toLowerCase().trim();
+
+      if (business === "shop") {
+        document.getElementById("ideaOutput").innerText = "Please provide a more specific business type than just 'shop'.";
+        return;
+      }
+
+      // Check for similar terms
+      business = similarTerms[business] || business;
+      const key = `${stream}-${business}`;
+
+      const idea = ideas[key] || "No idea found for this combination. Try entering different or similar terms.";
+      document.getElementById("ideaOutput").innerText = idea;
+    }
+  </script>
+</body>
+</html>
