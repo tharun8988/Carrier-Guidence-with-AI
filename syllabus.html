@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Syllabus Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 2rem;
+    }
+    #form-container, #syllabus-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: auto;
+    }
+    #syllabus-container {
+      display: none;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    .weightage {
+      background: #e0f7fa;
+      padding: 10px;
+      border-left: 5px solid #00796b;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 20px;
+    }
+    #back-btn {
+      margin-right: 10px;
+      background-color: #ccc;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div id="form-container">
+    <h2>Enter Your Details</h2>
+    <input type="text" id="name" placeholder="Enter your name" required><br><br>
+    <select id="exam">
+      <option value="eapcet">EAPCET</option>
+      <option value="jee-mains">JEE Mains</option>
+      <option value="jee-advanced">JEE Advanced</option>
+      <option value="upsc">UPSC</option>
+      <option value="gate">GATE</option>
+      <option value="rrb">RRB</option>
+    </select><br><br>
+    <button id="submit-btn">Submit</button>
+  </div>
+
+  <div id="syllabus-container">
+    <h2 id="user-name"></h2>
+    <div id="syllabus-content"></div>
+    <div class="weightage" id="weightage-content"></div>
+    <button onclick="downloadSyllabus()">Download Syllabus</button>
+    <button id="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <script>
+    const syllabusData = {
+      "eapcet": `
+        <h3>EAPCET Syllabus</h3>
+        <ul>
+          <li><strong>Maths:</strong> Algebra, Trigonometry, Vector Algebra, Probability, Calculus, Coordinate Geometry, Matrices, Complex Numbers, Differential Equations</li>
+          <li><strong>Physics:</strong> Laws of Motion, Thermodynamics, Ray Optics, Wave Optics, Electricity, Magnetism, Modern Physics, Oscillations, Kinematics</li>
+          <li><strong>Chemistry:</strong> Atomic Structure, Thermodynamics, Chemical Bonding, Hydrocarbons, Alcohols, Organic Reactions, Equilibrium, Solutions, Environmental Chemistry</li>
+        </ul>`
+      ,
+      "jee-mains": `
+        <h3>JEE Mains Syllabus</h3>
+        <ul>
+          <li><strong>Maths:</strong> Sets, Relations, Functions, Complex Numbers, Quadratic Equations, Matrices, Determinants, Limits, Continuity, Differentiability, Application of Derivatives, Integrals, Differential Equations, Vectors, 3D Geometry, Probability, Statistics</li>
+          <li><strong>Physics:</strong> Kinematics, Laws of Motion, Work, Energy, Power, Rotational Motion, Gravitation, Properties of Matter, Thermodynamics, Kinetic Theory of Gases, Oscillations, Waves, Electrostatics, Magnetism, Optics, Modern Physics</li>
+          <li><strong>Chemistry:</strong> Some Basic Concepts, Structure of Atom, Periodic Table, Bonding, States of Matter, Thermodynamics, Equilibrium, Redox, Hydrogen, The s-, p-, d-, f-Block Elements, Coordination Compounds, Organic Chemistry, Polymers, Biomolecules, Environmental Chemistry</li>
+        </ul>`
+      ,
+      "jee-advanced": `
+        <h3>JEE Advanced Syllabus</h3>
+        <ul>
+          <li><strong>Maths:</strong> Algebra, Matrices, Probability, Trigonometry, Analytical Geometry, Differential Calculus, Integral Calculus, Vectors</li>
+          <li><strong>Physics:</strong> General Physics, Mechanics, Thermal Physics, Electricity and Magnetism, Optics, Modern Physics</li>
+          <li><strong>Chemistry:</strong> Physical Chemistry (Atomic Structure, Chemical Kinetics), Inorganic Chemistry (Periodic Table, Coordination Chemistry), Organic Chemistry (GOC, Hydrocarbons, Stereochemistry)</li>
+        </ul>`
+      ,
+      "upsc": `
+        <h3>UPSC Syllabus</h3>
+        <ul>
+          <li><strong>Prelims:</strong> History of India, Indian Polity and Governance, Geography, Economic and Social Development, Environmental Ecology, Biodiversity, Climate Change, Current Affairs</li>
+          <li><strong>Mains:</strong> Essay, General Studies Paper I-IV, Optional Subject Papers, Ethics, Integrity, and Aptitude</li>
+        </ul>`
+      ,
+      "gate": `
+        <h3>GATE Syllabus (CSE)</h3>
+        <ul>
+          <li><strong>Engineering Mathematics:</strong> Discrete Maths, Linear Algebra, Calculus, Probability</li>
+          <li><strong>Core Subjects:</strong> Digital Logic, Computer Organization, Programming & DS, Algorithms, TOC, Compiler Design, Operating System, Databases, Computer Networks</li>
+          <li><strong>General Aptitude:</strong> Verbal Ability, Numerical Ability</li>
+        </ul>`
+      ,
+      "rrb": `
+        <h3>RRB Syllabus</h3>
+        <ul>
+          <li><strong>Mathematics:</strong> Number System, Decimals, Percentages, Ratio, Simple & Compound Interest, Time and Distance, Profit & Loss, Geometry</li>
+          <li><strong>Reasoning:</strong> Analogy, Coding-Decoding, Syllogism, Blood Relations, Puzzle, Decision Making</li>
+          <li><strong>GK & Current Affairs:</strong> Indian History, Geography, Constitution, General Science, Current Events</li>
+        </ul>`
+    };
+
+    const weightageData = {
+      "eapcet": `<strong>High Weightage Topics:</strong><ul><li>Maths: Calculus, Vectors</li><li>Physics: Thermodynamics, Optics</li><li>Chemistry: Organic Chemistry, Chemical Bonding</li></ul>`,
+      "jee-mains": `<strong>High Weightage Topics:</strong><ul><li>Maths: Coordinate Geometry, Calculus</li><li>Physics: Electrostatics, Current Electricity</li><li>Chemistry: Organic Chemistry, Thermodynamics</li></ul>`,
+      "jee-advanced": `<strong>High Weightage Topics:</strong><ul><li>Maths: Integrals, Vectors</li><li>Physics: Mechanics, E&M</li><li>Chemistry: GOC, Organic Reactions</li></ul>`,
+      "upsc": `<strong>High Weightage Topics:</strong><ul><li>Polity: Constitution, Governance</li><li>Geography: Climate, Resources</li><li>Current Affairs: Monthly Review</li></ul>`,
+      "gate": `<strong>High Weightage Topics:</strong><ul><li>DSA: Trees, Graphs</li><li>OS: Memory Management, Process Scheduling</li><li>CN: TCP/IP, Routing Algorithms</li></ul>`,
+      "rrb": `<strong>High Weightage Topics:</strong><ul><li>Maths: Time & Distance, Profit & Loss</li><li>Reasoning: Series, Puzzles</li><li>GK: Indian Constitution, Current Affairs</li></ul>`
+    };
+
+    document.getElementById('submit-btn').addEventListener('click', function () {
+      const name = document.getElementById('name').value.trim();
+      const exam = document.getElementById('exam').value;
+
+      if (name === "") {
+        alert("Please enter your name.");
+        return;
+      }
+
+      document.getElementById('form-container').style.display = 'none';
+      document.getElementById('syllabus-container').style.display = 'block';
+
+      document.getElementById('user-name').innerText = `${name}'s ${exam.toUpperCase()} Syllabus`;
+      document.getElementById('syllabus-content').innerHTML = syllabusData[exam];
+      document.getElementById('weightage-content').innerHTML = weightageData[exam];
+    });
+
+    // function downloadSyllabus() {
+    //   const userName = document.getElementById('name').value.trim();
+    //   const exam = document.getElementById('exam').value;
+
+    //   const syllabusText = document.getElementById('syllabus-content').innerText;
+    //   const weightageText = document.getElementById('weightage-content').innerText;
+
+    //   const fileContent = `${userName}'s ${exam.toUpperCase()} Syllabus\n\n${syllabusText}\n\n${weightageText}`;
+    //   const blob = new Blob([fileContent], { type: 'text/plain' });
+    //   const url = URL.createObjectURL(blob);
+
+    //   const a = document.createElement('a');
+    //   a.href = url;
+    //   a.download = `${userName}_${exam}_syllabus.txt`;
+    //   document.body.appendChild(a);
+    //   a.click();
+    //   document.body.removeChild(a);
+    //   URL.revokeObjectURL(url);
+    // }
+
+    function goBack() {
+      document.getElementById('syllabus-container').style.display = 'none';
+      document.getElementById('form-container').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
