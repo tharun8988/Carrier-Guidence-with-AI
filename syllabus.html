@@ -142,25 +142,25 @@
       document.getElementById('weightage-content').innerHTML = weightageData[exam];
     });
 
-    // function downloadSyllabus() {
-    //   const userName = document.getElementById('name').value.trim();
-    //   const exam = document.getElementById('exam').value;
+    function downloadSyllabus() {
+      const userName = document.getElementById('name').value.trim();
+      const exam = document.getElementById('exam').value;
 
-    //   const syllabusText = document.getElementById('syllabus-content').innerText;
-    //   const weightageText = document.getElementById('weightage-content').innerText;
+      const syllabusText = document.getElementById('syllabus-content').innerText;
+      const weightageText = document.getElementById('weightage-content').innerText;
 
-    //   const fileContent = `${userName}'s ${exam.toUpperCase()} Syllabus\n\n${syllabusText}\n\n${weightageText}`;
-    //   const blob = new Blob([fileContent], { type: 'text/plain' });
-    //   const url = URL.createObjectURL(blob);
+      const fileContent = `${userName}'s ${exam.toUpperCase()} Syllabus\n\n${syllabusText}\n\n${weightageText}`;
+      const blob = new Blob([fileContent], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
 
-    //   const a = document.createElement('a');
-    //   a.href = url;
-    //   a.download = `${userName}_${exam}_syllabus.txt`;
-    //   document.body.appendChild(a);
-    //   a.click();
-    //   document.body.removeChild(a);
-    //   URL.revokeObjectURL(url);
-    // }
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${userName}_${exam}_syllabus.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
 
     function goBack() {
       document.getElementById('syllabus-container').style.display = 'none';
