@@ -1,0 +1,2880 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Career Path</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+  <h2 class="text-3xl font-bold text-center mb-6">Your Suggested Career</h2>
+  <div id="resultBox" class="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md"></div>
+
+  <script>
+    const combo = localStorage.getItem("studentCombo");
+    const careerSuggestions = {
+      "math_building_hands_short": {
+  "title": "Civil Engineering Technician",
+  "desc": "Ideal for students who like math, enjoy building and construction activities, prefer learning by doing (hands-on), and want a short-term course.",
+  "careers": [
+    {
+      "career": "Site Supervisor",
+      "description": "Manage daily activities at construction sites, ensuring projects are completed safely and on time.",
+      "studyPath": "Diploma in Civil Engineering (2–3 years) or Certification in Construction Supervision."
+    },
+    {
+      "career": "Drafting Technician",
+      "description": "Create technical drawings and blueprints for construction and manufacturing projects using manual and computer-based tools.",
+      "studyPath": "Diploma or Certificate in Drafting and CAD Technology (1–2 years)."
+    },
+    {
+      "career": "Survey Assistant",
+      "description": "Assist in land surveying operations, collecting field data for engineering and construction projects.",
+      "studyPath": "Diploma in Land Surveying (2 years) or Certificate in Surveying Techniques."
+    }
+  ]
+}
+,
+"math_building_hands_long": {
+  "title": "Civil Engineering Technologist",
+  "desc": "Ideal for students who like math, enjoy building and construction activities, prefer learning by doing (hands-on), and are ready for a longer, more in-depth course.",
+  "careers": [
+    {
+      "career": "Structural Designer",
+      "description": "Design and analyze structures like bridges, buildings, and tunnels to ensure they are strong, safe, and cost-effective.",
+      "studyPath": "Bachelor's Degree in Civil Engineering Technology (4 years) or Civil Engineering (4–5 years)."
+    },
+    {
+      "career": "Construction Project Manager",
+      "description": "Plan, coordinate, and oversee construction projects from start to finish, managing budgets, teams, and schedules.",
+      "studyPath": "Bachelor's Degree in Construction Management or Civil Engineering (4 years)."
+    },
+    {
+      "career": "Geotechnical Technologist",
+      "description": "Study soil, rock, and groundwater conditions to help design foundations, earthworks, and underground structures.",
+      "studyPath": "Bachelor's Degree in Geotechnical or Civil Engineering Technology (4 years)."
+    }
+  ]
+}
+,
+"math_building_computer_short": {
+  "title": "CAD Technician",
+  "desc": "Ideal for students who like math, are interested in building and design, enjoy working with computers, and prefer a short-term, hands-on course.",
+  "careers": [
+    {
+      "career": "CAD Drafter",
+      "description": "Create detailed technical drawings and plans for buildings, machinery, or products using computer-aided design (CAD) software.",
+      "studyPath": "Certificate or Diploma in CAD Technology or Drafting (1–2 years)."
+    },
+    {
+      "career": "Building Information Modeling (BIM) Technician",
+      "description": "Develop and manage digital models of building projects to support planning, design, and construction processes.",
+      "studyPath": "Diploma or Certificate in BIM Technology or Architectural Technology (1–2 years)."
+    },
+    {
+      "career": "Mechanical Drafter",
+      "description": "Prepare technical drawings of mechanical devices and systems, working closely with engineers and designers.",
+      "studyPath": "Diploma or Certificate in Mechanical Drafting and Design (1–2 years)."
+    }
+  ]
+}
+,
+"math_building_computer_long": {
+  "title": "Architectural Technologist",
+  "desc": "Ideal for students who like math, enjoy building and design, are skilled with computers, and are ready for a longer, more detailed course.",
+  "careers": [
+    {
+      "career": "Architectural Technologist",
+      "description": "Assist architects by developing detailed drawings, building plans, and specifications using advanced CAD and BIM tools.",
+      "studyPath": "Bachelor's Degree in Architectural Technology or Architecture (4 years)."
+    },
+    {
+      "career": "Structural CAD Designer",
+      "description": "Design detailed structural components and systems for buildings and infrastructure projects using computer software.",
+      "studyPath": "Bachelor's Degree in Civil Engineering Technology or Structural Engineering Technology (4 years)."
+    },
+    {
+      "career": "Construction Technology Specialist",
+      "description": "Integrate construction methods with digital tools, working on innovative building systems and project management solutions.",
+      "studyPath": "Bachelor's Degree in Construction Technology or Construction Science (4 years)."
+    }
+  ]
+}
+,
+"math_building_talk_short": {
+  "title": "Construction Coordinator",
+  "desc": "Ideal for students who like math, enjoy building and construction, have strong communication skills, and prefer a short-term course.",
+  "careers": [
+    {
+      "career": "Construction Estimator",
+      "description": "Calculate costs, materials, and labor needed for construction projects, and communicate proposals to clients and teams.",
+      "studyPath": "Certificate or Diploma in Construction Estimating or Construction Management (1–2 years)."
+    },
+    {
+      "career": "Sales Representative (Construction Materials)",
+      "description": "Promote and sell building materials and products to contractors and construction companies.",
+      "studyPath": "Certificate or Diploma in Sales, Marketing, or Construction Technology (1–2 years)."
+    },
+    {
+      "career": "Project Assistant",
+      "description": "Support construction managers by coordinating schedules, communicating with teams, and handling project documentation.",
+      "studyPath": "Diploma in Construction Project Management or Office Administration (1–2 years)."
+    }
+  ]
+}
+,
+"math_building_talk_long": {
+  "title": "Construction Manager",
+  "desc": "Ideal for students who like math, enjoy building and construction, have strong communication and leadership skills, and are ready for a longer, more advanced course.",
+  "careers": [
+    {
+      "career": "Construction Manager",
+      "description": "Oversee construction projects from planning to completion, managing teams, budgets, and client communications.",
+      "studyPath": "Bachelor's Degree in Construction Management or Civil Engineering (4 years)."
+    },
+    {
+      "career": "Quantity Surveyor",
+      "description": "Manage costs and contracts on construction projects, ensuring they are completed within budget and legal requirements.",
+      "studyPath": "Bachelor's Degree in Quantity Surveying or Construction Economics (4 years)."
+    },
+    {
+      "career": "Business Development Manager (Construction)",
+      "description": "Identify new business opportunities, build client relationships, and lead proposals for construction and engineering firms.",
+      "studyPath": "Bachelor's Degree in Business Administration with focus on Construction Management or Sales (4 years)."
+    }
+  ]
+}
+,
+  "math_building_observe_short": {
+  "title": "Construction Inspector Assistant",
+  "desc": "Ideal for students who like math, enjoy building and construction, have strong observation skills, and prefer a short-term, hands-on course.",
+  "careers": [
+    {
+      "career": "Construction Inspector Assistant",
+      "description": "Support inspectors by observing construction sites, documenting progress, and ensuring work meets codes and regulations.",
+      "studyPath": "Certificate or Diploma in Construction Inspection or Building Technology (1–2 years)."
+    },
+    {
+      "career": "Quality Control Technician",
+      "description": "Inspect construction materials and workmanship to ensure quality standards and project specifications are met.",
+      "studyPath": "Diploma or Certificate in Quality Assurance, Construction Technology, or Civil Engineering Technology (1–2 years)."
+    },
+    {
+      "career": "Field Technician (Construction)",
+      "description": "Collect samples, conduct on-site testing, and assist engineers in monitoring construction activities and site conditions.",
+      "studyPath": "Diploma or Certificate in Construction Engineering Technology or Field Inspection (1–2 years)."
+    }
+  ]
+}
+,
+"math_building_observe_long": {
+  "title": "Building Inspector",
+  "desc": "Ideal for students who like math, enjoy building and construction, have strong observation and analytical skills, and are ready for a longer, detailed course.",
+  "careers": [
+    {
+      "career": "Building Inspector",
+      "description": "Inspect buildings during and after construction to ensure compliance with codes, regulations, and safety standards.",
+      "studyPath": "Bachelor's Degree in Building Science, Construction Management, or Civil Engineering (4 years)."
+    },
+    {
+      "career": "Structural Inspector",
+      "description": "Specialize in examining the structural integrity of buildings, bridges, and other infrastructure projects.",
+      "studyPath": "Bachelor's Degree in Civil or Structural Engineering (4–5 years)."
+    },
+    {
+      "career": "Code Compliance Officer",
+      "description": "Review and enforce building codes, zoning laws, and safety regulations for new and existing construction projects.",
+      "studyPath": "Bachelor's Degree in Public Administration, Urban Planning, or Construction Management (4 years)."
+    }
+  ]
+}
+,
+"math_helping_hands_short": {
+  "title": "Math Tutor Assistant",
+  "desc": "Ideal for students who like math, enjoy helping others, and prefer a short-term, hands-on course where they can assist in teaching and learning environments.",
+  "careers": [
+    {
+      "career": "Math Tutor",
+      "description": "Provide one-on-one or small group tutoring to help students understand and excel in math subjects.",
+      "studyPath": "Certificate or Diploma in Education Assistance or Tutoring (1–2 years)."
+    },
+    {
+      "career": "Peer Tutor Coordinator",
+      "description": "Organize and manage peer tutoring programs, matching tutors with students and overseeing the tutoring process.",
+      "studyPath": "Diploma in Education, Educational Support, or Tutoring (1–2 years)."
+    },
+    {
+      "career": "Learning Support Assistant (Math Focus)",
+      "description": "Assist students with learning challenges in the classroom, focusing on math-related concepts and activities.",
+      "studyPath": "Diploma in Special Education or Educational Assistance (1–2 years)."
+    }
+  ]
+}
+,
+  "math_helping_hands_long": {
+  "title": "Educational Support Specialist",
+  "desc": "Ideal for students who like math, enjoy helping others, have strong communication skills, and are ready for a longer, more in-depth course in education and tutoring.",
+  "careers": [
+    {
+      "career": "Math Intervention Specialist",
+      "description": "Work with students who are struggling with math, providing targeted instruction and strategies to improve their skills.",
+      "studyPath": "Bachelor's Degree in Education with a focus on Mathematics or Special Education (4 years)."
+    },
+    {
+      "career": "Learning Specialist",
+      "description": "Design and implement customized learning plans to support students with diverse learning needs, particularly in math.",
+      "studyPath": "Bachelor's Degree in Special Education or Learning Disabilities (4 years)."
+    },
+    {
+      "career": "Curriculum Developer (Math Focus)",
+      "description": "Create and design instructional materials and curricula for teaching math to various student groups, including those with learning challenges.",
+      "studyPath": "Bachelor's Degree in Education, Curriculum Design, or Educational Psychology (4 years)."
+    }
+  ]
+}
+,
+  "math_helping_computer_short": {
+  "title": "Educational Technology Assistant",
+  "desc": "Ideal for students who like math, enjoy helping others, are interested in computers, and prefer a short-term, hands-on course focused on educational tools and technology.",
+  "careers": [
+    {
+      "career": "EdTech Support Specialist",
+      "description": "Assist teachers and educational staff with integrating technology into math lessons and managing educational software and tools.",
+      "studyPath": "Certificate or Diploma in Educational Technology, IT Support, or Instructional Design (1–2 years)."
+    },
+    {
+      "career": "Math Software Assistant",
+      "description": "Support the development and implementation of math-related software and applications used for teaching and learning.",
+      "studyPath": "Diploma in Software Development, Educational Technology, or Computer Science (1–2 years)."
+    },
+    {
+      "career": "Online Tutor Support Assistant",
+      "description": "Assist in managing online tutoring platforms, ensuring students have access to resources, and supporting digital learning tools.",
+      "studyPath": "Certificate in Educational Technology or E-Learning (1–2 years)."
+    }
+  ]
+}
+,
+  "math_helping_computer_long": {
+  "title": "Instructional Designer",
+  "desc": "Ideal for students who like math, enjoy helping others, have strong computer skills, and are ready for a longer, more advanced course in educational technology and instructional design.",
+  "careers": [
+    {
+      "career": "Instructional Designer (Math Focus)",
+      "description": "Design and develop instructional materials and digital learning resources for math education, integrating technology to enhance learning experiences.",
+      "studyPath": "Bachelor's Degree in Instructional Design, Educational Technology, or Computer Science (4 years)."
+    },
+    {
+      "career": "E-Learning Specialist",
+      "description": "Develop and manage online learning platforms, focusing on math-related courses and educational technology integration.",
+      "studyPath": "Bachelor's Degree in E-Learning, Educational Technology, or Multimedia Design (4 years)."
+    },
+    {
+      "career": "Educational Software Developer",
+      "description": "Create software applications focused on teaching math concepts, collaborating with educators to design effective learning tools.",
+      "studyPath": "Bachelor's Degree in Computer Science, Software Engineering, or Educational Technology (4 years)."
+    }
+  ]
+}
+,
+  "math_helping_talk_short": {
+  "title": "Math Support Coordinator",
+  "desc": "Ideal for students who like math, enjoy helping others, have good communication skills, and prefer a short-term course in supporting educational environments.",
+  "careers": [
+    {
+      "career": "Math Tutoring Coordinator",
+      "description": "Organize and manage math tutoring programs, matching tutors with students, scheduling sessions, and ensuring tutoring goals are met.",
+      "studyPath": "Certificate or Diploma in Education Support or Tutoring (1–2 years)."
+    },
+    {
+      "career": "Student Support Specialist (Math Focus)",
+      "description": "Assist students in overcoming challenges in math, providing guidance and support for academic success in math courses.",
+      "studyPath": "Diploma in Educational Support or Learning Assistance (1–2 years)."
+    },
+    {
+      "career": "Math Program Assistant",
+      "description": "Assist in developing and implementing math programs, including workshops, study groups, and one-on-one tutoring.",
+      "studyPath": "Certificate or Diploma in Education, Tutoring, or Educational Support (1–2 years)."
+    }
+  ]
+}
+,
+  "math_helping_talk_long": {
+  "title": "Math Education Specialist",
+  "desc": "Ideal for students who like math, enjoy helping others, have strong communication skills, and are ready for a longer, in-depth course in educational support and tutoring.",
+  "careers": [
+    {
+      "career": "Math Intervention Specialist",
+      "description": "Provide targeted support to students who struggle with math, developing individualized strategies and resources to help them succeed.",
+      "studyPath": "Bachelor's Degree in Education with a focus on Mathematics or Special Education (4 years)."
+    },
+    {
+      "career": "Curriculum Coordinator (Math Focus)",
+      "description": "Develop, implement, and evaluate math curricula, working closely with teachers to ensure the materials meet students' needs and educational standards.",
+      "studyPath": "Bachelor's Degree in Curriculum Design, Education, or Mathematics (4 years)."
+    },
+    {
+      "career": "Educational Consultant (Math Focus)",
+      "description": "Advise schools, districts, or educational organizations on best practices for teaching math and integrating effective math strategies into classrooms.",
+      "studyPath": "Bachelor's or Master's Degree in Education, Educational Leadership, or Curriculum Development (4–6 years)."
+    }
+  ]
+}
+,
+  "math_helping_observe_short": {
+  "title": "Math Observation Assistant",
+  "desc": "Ideal for students who like math, enjoy helping others, have strong observational skills, and prefer a short-term course focused on observing and supporting math learning.",
+  "careers": [
+    {
+      "career": "Math Classroom Observer",
+      "description": "Observe math classes, assist teachers by documenting student progress, and provide feedback to improve teaching strategies.",
+      "studyPath": "Certificate or Diploma in Educational Support or Classroom Assistance (1–2 years)."
+    },
+    {
+      "career": "Student Progress Assistant (Math Focus)",
+      "description": "Track and record students' performance in math, assist teachers with identifying areas where students need additional support.",
+      "studyPath": "Diploma in Educational Support or Classroom Management (1–2 years)."
+    },
+    {
+      "career": "Teaching Assistant (Math Focus)",
+      "description": "Support math teachers by assisting with classroom management, helping students with tasks, and observing student engagement during lessons.",
+      "studyPath": "Certificate or Diploma in Education Assistance (1–2 years)."
+    }
+  ]
+}
+,
+  "math_helping_observe_long": {
+  "title": "Math Education Observer",
+  "desc": "Ideal for students who like math, enjoy helping others, have strong observational and analytical skills, and are ready for a longer, more in-depth course in educational observation and support.",
+  "careers": [
+    {
+      "career": "Math Education Specialist",
+      "description": "Observe and analyze math classrooms to assess teaching effectiveness, identify areas for improvement, and support teachers in implementing new strategies.",
+      "studyPath": "Bachelor's Degree in Education, Educational Psychology, or Mathematics (4 years)."
+    },
+    {
+      "career": "Educational Research Assistant (Math Focus)",
+      "description": "Assist with research studies focused on math education, gathering and analyzing data on teaching methods, student performance, and curriculum effectiveness.",
+      "studyPath": "Bachelor's Degree in Education, Research, or Mathematics (4 years)."
+    },
+    {
+      "career": "Curriculum Specialist (Math Focus)",
+      "description": "Develop and evaluate math curriculum, conducting classroom observations to ensure teaching materials align with student needs and learning objectives.",
+      "studyPath": "Bachelor's Degree in Curriculum Design, Education, or Mathematics (4 years)."
+    }
+  ]
+}
+,
+ "math_creating_hands_short": {
+  "title": "Math Content Creator",
+  "desc": "Ideal for students who like math, enjoy creating, and prefer a short-term, hands-on course in designing educational materials and content.",
+  "careers": [
+    {
+      "career": "Math Educational Content Developer",
+      "description": "Create and design math learning materials, such as worksheets, tutorials, and videos, to help students understand mathematical concepts.",
+      "studyPath": "Certificate or Diploma in Instructional Design, Educational Content Creation, or Multimedia (1–2 years)."
+    },
+    {
+      "career": "Math Textbook Author",
+      "description": "Write and develop textbooks, online materials, or educational resources focused on teaching math to different age groups.",
+      "studyPath": "Certificate or Diploma in Publishing, Educational Materials Development, or Writing (1–2 years)."
+    },
+    {
+      "career": "Math Curriculum Developer",
+      "description": "Design and create comprehensive math curricula, incorporating lesson plans, assignments, and digital tools to enhance learning.",
+      "studyPath": "Diploma in Curriculum Development, Education, or Instructional Design (1–2 years)."
+    }
+  ]
+}
+,
+  "math_creating_hands_long": {
+  "title": "Mathematics Educator and Developer",
+  "desc": "Ideal for students who like math, enjoy creating educational materials, and are ready for a longer, in-depth course in designing and developing advanced math learning resources.",
+  "careers": [
+    {
+      "career": "Math Curriculum Designer",
+      "description": "Develop and implement advanced math curricula, incorporating research-based teaching strategies and digital tools to improve student outcomes.",
+      "studyPath": "Bachelor's Degree in Curriculum Design, Education, or Mathematics (4 years)."
+    },
+    {
+      "career": "Instructional Designer (Math Focus)",
+      "description": "Create and design instructional content and e-learning courses for math education, focusing on interactive learning experiences and student engagement.",
+      "studyPath": "Bachelor's or Master's Degree in Instructional Design, Educational Technology, or Mathematics (4–6 years)."
+    },
+    {
+      "career": "Educational Materials Specialist (Math Focus)",
+      "description": "Oversee the creation and distribution of math-related educational materials, ensuring they align with educational standards and cater to diverse learning needs.",
+      "studyPath": "Bachelor's Degree in Education, Educational Technology, or Mathematics (4 years)."
+    }
+  ]
+}
+,
+  "math_creating_computer_short": {
+  "title": "Math Software Developer",
+  "desc": "Ideal for students who like math, enjoy creating, and have an interest in using computers to develop educational tools and software.",
+  "careers": [
+    {
+      "career": "Math Software Developer",
+      "description": "Develop software and applications designed to teach and practice math concepts, creating tools that help students engage with mathematics interactively.",
+      "studyPath": "Certificate or Diploma in Software Development, Computer Science, or Educational Technology (1–2 years)."
+    },
+    {
+      "career": "Educational Game Developer (Math Focus)",
+      "description": "Create educational games that teach math concepts through interactive gameplay, aimed at engaging students in learning math.",
+      "studyPath": "Diploma in Game Development, Educational Technology, or Interactive Media (1–2 years)."
+    },
+    {
+      "career": "Math App Developer",
+      "description": "Develop mobile or web applications that focus on teaching math concepts, providing tools and resources for students and educators.",
+      "studyPath": "Certificate or Diploma in Mobile App Development, Computer Science, or Educational Technology (1–2 years)."
+    }
+  ]
+}
+,
+  "math_creating_computer_long": {
+  "title": "Mathematics Software Engineer",
+  "desc": "Ideal for students who like math, enjoy creating educational technology, and are ready for a longer, in-depth course in developing advanced software and applications for math education.",
+  "careers": [
+    {
+      "career": "Mathematics Software Engineer",
+      "description": "Design and develop advanced software tools for teaching and learning math, focusing on innovative solutions to improve math education through technology.",
+      "studyPath": "Bachelor's Degree in Software Engineering, Computer Science, or Educational Technology (4 years)."
+    },
+    {
+      "career": "Game Developer (Math Focus)",
+      "description": "Develop advanced educational games that incorporate complex math concepts, creating engaging experiences to teach mathematics across various levels.",
+      "studyPath": "Bachelor's Degree in Game Development, Computer Science, or Interactive Media (4 years)."
+    },
+    {
+      "career": "Researcher in Math Education Technology",
+      "description": "Conduct research in the field of educational technology, focusing on the development of software and systems that enhance math learning outcomes.",
+      "studyPath": "Bachelor's or Master's Degree in Educational Technology, Mathematics, or Computer Science (4–6 years)."
+    }
+  ]
+}
+,
+"math_creating_talk_short": {
+  "title": "Math Communication Specialist",
+  "desc": "Ideal for students who like math, enjoy creating educational content, and have strong communication skills, with a focus on developing and presenting math-focused materials.",
+  "careers": [
+    {
+      "career": "Math Content Presenter",
+      "description": "Create and present engaging math lessons, videos, and tutorials to explain complex math concepts to diverse audiences.",
+      "studyPath": "Certificate or Diploma in Communication, Media, or Educational Content Creation (1–2 years)."
+    },
+    {
+      "career": "Math Webinar Host",
+      "description": "Host live webinars and online workshops to teach math concepts, using interactive tools and communication platforms.",
+      "studyPath": "Certificate in Digital Communication, Public Speaking, or Educational Technology (1–2 years)."
+    },
+    {
+      "career": "Math Workshop Facilitator",
+      "description": "Organize and facilitate hands-on math workshops and training sessions, helping students and educators grasp complex math topics.",
+      "studyPath": "Certificate or Diploma in Education, Tutoring, or Workshop Facilitation (1–2 years)."
+    }
+  ]
+}
+,
+  "math_creating_talk_long": {
+  "title": "Math Educational Communicator",
+  "desc": "Ideal for students who like math, enjoy creating engaging educational content, and have strong communication skills, ready for a longer, more advanced course in presenting and creating math-focused materials.",
+  "careers": [
+    {
+      "career": "Math Educational Speaker",
+      "description": "Speak at conferences, seminars, and workshops to share insights on effective math teaching methods, research, and trends in math education.",
+      "studyPath": "Bachelor's Degree in Communication, Education, or Mathematics (4 years)."
+    },
+    {
+      "career": "Math Education Consultant",
+      "description": "Advise schools, districts, or educational organizations on how to develop and present math curricula and instructional resources effectively.",
+      "studyPath": "Bachelor's or Master's Degree in Education, Mathematics, or Educational Leadership (4–6 years)."
+    },
+    {
+      "career": "Math Program Director",
+      "description": "Oversee the development and delivery of math programs and courses, ensuring content is engaging, accessible, and aligned with educational standards.",
+      "studyPath": "Bachelor's or Master's Degree in Education, Program Management, or Mathematics (4–6 years)."
+    }
+  ]
+},
+"math_creating_talk_long": {
+  "title": "Math Educational Communicator",
+  "desc": "Ideal for students who like math, enjoy creating engaging educational content, and have strong communication skills, ready for a longer, more advanced course in presenting and creating math-focused materials.",
+  "careers": [
+    {
+      "career": "Math Educational Speaker",
+      "description": "Speak at conferences, seminars, and workshops to share insights on effective math teaching methods, research, and trends in math education.",
+      "studyPath": "Bachelor's Degree in Communication, Education, or Mathematics (4 years)."
+    },
+    {
+      "career": "Math Education Consultant",
+      "description": "Advise schools, districts, or educational organizations on how to develop and present math curricula and instructional resources effectively.",
+      "studyPath": "Bachelor's or Master's Degree in Education, Mathematics, or Educational Leadership (4–6 years)."
+    },
+    {
+      "career": "Math Program Director",
+      "description": "Oversee the development and delivery of math programs and courses, ensuring content is engaging, accessible, and aligned with educational standards.",
+      "studyPath": "Bachelor's or Master's Degree in Education, Program Management, or Mathematics (4–6 years)."
+    }
+  ]
+}
+,
+  "math_creating_observe_short": {
+  "title": "Math Curriculum Observer",
+  "desc": "Ideal for students who like math, enjoy creating, and have strong observational skills, focusing on observing and analyzing the effectiveness of math educational materials and resources.",
+  "careers": [
+    {
+      "career": "Math Educational Content Evaluator",
+      "description": "Observe and evaluate math educational content and resources, providing feedback on how well they engage students and meet learning objectives.",
+      "studyPath": "Certificate or Diploma in Education, Educational Materials Design, or Instructional Design (1–2 years)."
+    },
+    {
+      "career": "Math Classroom Observer",
+      "description": "Observe math classrooms, documenting the use of educational materials and assessing the impact of instructional strategies on student engagement and learning outcomes.",
+      "studyPath": "Diploma in Educational Support, Classroom Observation, or Teaching Assistance (1–2 years)."
+    },
+    {
+      "career": "Instructional Materials Assistant (Math Focus)",
+      "description": "Assist in the development and evaluation of instructional materials used in math education, ensuring they align with curriculum standards and improve student comprehension.",
+      "studyPath": "Certificate in Instructional Design, Educational Materials Development, or Education (1–2 years)."
+    }
+  ]
+}
+,
+ "math_creating_observe_long": {
+  "title": "Math Curriculum Specialist",
+  "desc": "Ideal for students who like math, enjoy creating educational materials, and have strong observational and analytical skills, ready for a longer, in-depth course in curriculum development and evaluation.",
+  "careers": [
+    {
+      "career": "Math Curriculum Designer",
+      "description": "Develop and design comprehensive math curricula, evaluating instructional materials and ensuring they meet educational standards and effectively support student learning.",
+      "studyPath": "Bachelor's Degree in Education, Curriculum Development, or Mathematics (4 years)."
+    },
+    {
+      "career": "Instructional Designer (Math Focus)",
+      "description": "Create and implement instructional strategies, including curriculum, assessments, and educational resources, focused on math education across various levels.",
+      "studyPath": "Bachelor's or Master's Degree in Instructional Design, Educational Technology, or Mathematics (4–6 years)."
+    },
+    {
+      "career": "Curriculum Evaluation Specialist",
+      "description": "Analyze and evaluate math curricula and instructional materials, providing feedback to ensure they align with best practices and meet student learning needs.",
+      "studyPath": "Bachelor's or Master's Degree in Education, Curriculum Evaluation, or Educational Research (4–6 years)."
+    }
+  ]
+}
+,
+"math_managing_hands_short": {
+  "title": "Math Operations Manager",
+  "desc": "Ideal for students who like math, enjoy managing tasks, and prefer a short-term, hands-on course focused on overseeing math-related operations and projects.",
+  "careers": [
+    {
+      "career": "Math Project Coordinator",
+      "description": "Oversee and manage math-related projects, ensuring tasks are completed on time, within budget, and according to specified requirements.",
+      "studyPath": "Certificate or Diploma in Project Management, Operations Management, or Mathematics (1–2 years)."
+    },
+    {
+      "career": "Math Department Assistant",
+      "description": "Support the management of math departments in educational institutions, helping organize schedules, resources, and materials for math programs.",
+      "studyPath": "Certificate or Diploma in Office Administration, Educational Management, or Operations (1–2 years)."
+    },
+    {
+      "career": "Math Resource Coordinator",
+      "description": "Manage and coordinate resources, tools, and materials used in math education, ensuring their availability and organization for teachers and students.",
+      "studyPath": "Diploma in Educational Support, Resource Management, or Office Administration (1–2 years)."
+    }
+  ]
+}
+,
+  "math_managing_hands_long": {
+  "title": "Mathematics Operations Director",
+  "desc": "Ideal for students who like math, enjoy managing large projects or teams, and are ready for a longer, in-depth course in overseeing math-related operations and organizational strategies.",
+  "careers": [
+    {
+      "career": "Math Program Manager",
+      "description": "Manage and oversee large-scale math programs, ensuring smooth operations, budgeting, and resource allocation across multiple teams and departments.",
+      "studyPath": "Bachelor's or Master's Degree in Operations Management, Business Administration, or Mathematics (4–6 years)."
+    },
+    {
+      "career": "Math Educational Program Director",
+      "description": "Direct and coordinate the development and implementation of math curricula, educational programs, and workshops across educational institutions or organizations.",
+      "studyPath": "Bachelor's or Master's Degree in Education, Program Management, or Mathematics (4–6 years)."
+    },
+    {
+      "career": "Math Resource and Operations Manager",
+      "description": "Oversee the logistics and operations of math resources, coordinating between teachers, administrators, and suppliers to ensure smooth delivery of materials and support.",
+      "studyPath": "Bachelor's or Master's Degree in Educational Management, Resource Management, or Mathematics (4–6 years)."
+    }
+  ]
+}
+,
+  "math_managing_computer_short": {
+  "title": "Math Technology Coordinator",
+  "desc": "Ideal for students who like math, enjoy managing technology tools, and prefer a short-term, hands-on course focused on overseeing math-related technology and systems.",
+  "careers": [
+    {
+      "career": "Math Technology Support Coordinator",
+      "description": "Coordinate the use of technology tools and software in math education, ensuring that teachers and students have the necessary resources for effective learning.",
+      "studyPath": "Certificate or Diploma in Educational Technology, IT Support, or Mathematics (1–2 years)."
+    },
+    {
+      "career": "Math Systems Administrator",
+      "description": "Manage and maintain math software systems, ensuring they are properly installed, configured, and running smoothly for educational institutions.",
+      "studyPath": "Diploma in Information Technology, Systems Administration, or Educational Technology (1–2 years)."
+    },
+    {
+      "career": "Math Digital Resources Coordinator",
+      "description": "Oversee the development, implementation, and management of digital math resources, including learning platforms and interactive tools.",
+      "studyPath": "Certificate or Diploma in Digital Media, Educational Technology, or Computer Science (1–2 years)."
+    }
+  ]
+}
+,
+  "math_managing_computer_long": {
+  "title": "Mathematics Technology Manager",
+  "desc": "Ideal for students who like math, enjoy managing complex technology systems, and are ready for a longer, in-depth course in overseeing and managing math-related technology operations and resources.",
+  "careers": [
+    {
+      "career": "Math Technology Manager",
+      "description": "Manage the development and integration of technology solutions in math education, overseeing teams that design and implement software, digital resources, and platforms.",
+      "studyPath": "Bachelor's or Master's Degree in Information Technology, Educational Technology, or Mathematics (4–6 years)."
+    },
+    {
+      "career": "Educational Systems Manager (Math Focus)",
+      "description": "Oversee and manage the implementation of large-scale educational systems and platforms that are specifically tailored to math education.",
+      "studyPath": "Bachelor's or Master's Degree in Educational Technology, System Management, or Mathematics (4–6 years)."
+    },
+    {
+      "career": "Director of Math Technology Integration",
+      "description": "Lead the strategy and execution of integrating new technologies into math curricula and classroom settings, ensuring that digital tools enhance teaching and learning.",
+      "studyPath": "Bachelor's or Master's Degree in Educational Leadership, Technology Integration, or Mathematics (4–6 years)."
+    }
+  ]
+}
+,
+ "math_managing_talk_short": {
+  "title": "Math Communications Coordinator",
+  "desc": "Ideal for students who like math, enjoy managing communications, and prefer a short-term course focused on overseeing communication strategies in math education.",
+  "careers": [
+    {
+      "career": "Math Outreach Coordinator",
+      "description": "Develop and manage outreach programs to engage the community in math education, creating communication materials and strategies to promote math initiatives.",
+      "studyPath": "Certificate or Diploma in Communication, Marketing, or Mathematics (1–2 years)."
+    },
+    {
+      "career": "Math Content Manager",
+      "description": "Manage the creation and distribution of math-related educational content, ensuring that all materials are accurate, engaging, and aligned with the curriculum.",
+      "studyPath": "Diploma in Communications, Media, or Educational Content Management (1–2 years)."
+    },
+    {
+      "career": "Math Public Relations Coordinator",
+      "description": "Coordinate public relations efforts for math-related educational programs, promoting events, initiatives, and projects through media channels.",
+      "studyPath": "Certificate or Diploma in Public Relations, Communication, or Marketing (1–2 years)."
+    }
+  ]
+}
+,
+  "math_managing_talk_long": {
+  "title": "Mathematics Communications Manager",
+  "desc": "Ideal for students who like math, enjoy managing complex communication strategies, and are ready for a longer, in-depth course focused on leading communication efforts in math education and outreach.",
+  "careers": [
+    {
+      "career": "Math Communications Director",
+      "description": "Lead the strategy and execution of communication efforts for math-related educational programs, ensuring the message is clear and engaging for various audiences.",
+      "studyPath": "Bachelor's or Master's Degree in Communication, Public Relations, or Mathematics (4–6 years)."
+    },
+    {
+      "career": "Public Relations Manager (Math Focus)",
+      "description": "Manage public relations campaigns for math-related initiatives, working with media outlets, educational organizations, and community groups to promote math education.",
+      "studyPath": "Bachelor's or Master's Degree in Public Relations, Communication, or Marketing (4–6 years)."
+    },
+    {
+      "career": "Math Program Communications Manager",
+      "description": "Oversee and manage the development of communication strategies for math programs, including the creation of materials, managing media relations, and organizing outreach events.",
+      "studyPath": "Bachelor's or Master's Degree in Communications, Educational Leadership, or Mathematics (4–6 years)."
+    }
+  ]
+}
+,
+  "math_managing_observe_short": {
+  "title": "Math Operations Observer",
+  "desc": "Ideal for students who like math, enjoy observing operations, and prefer a short-term, hands-on course focused on monitoring and evaluating math-related operations and processes.",
+  "careers": [
+    {
+      "career": "Math Operations Assistant",
+      "description": "Assist in the observation and evaluation of math operations, documenting and reporting on the effectiveness and efficiency of processes.",
+      "studyPath": "Certificate or Diploma in Operations Management, Mathematics, or Educational Support (1–2 years)."
+    },
+    {
+      "career": "Math Program Evaluator",
+      "description": "Observe and assess math programs and activities, providing feedback and suggestions for improvements based on data and observations.",
+      "studyPath": "Diploma in Educational Evaluation, Operations, or Mathematics (1–2 years)."
+    },
+    {
+      "career": "Math Resource Auditor",
+      "description": "Audit math resources, such as teaching materials and software, to ensure they are being used effectively and efficiently in educational settings.",
+      "studyPath": "Certificate or Diploma in Resource Management, Educational Support, or Mathematics (1–2 years)."
+    }
+  ]
+}
+,
+  "math_managing_observe_long": {
+  "title": "Mathematics Operations Supervisor",
+  "desc": "Ideal for students who like math, enjoy managing and observing complex operations, and are ready for a longer, in-depth course focused on overseeing and evaluating math-related processes and programs.",
+  "careers": [
+    {
+      "career": "Math Program Supervisor",
+      "description": "Supervise and evaluate math programs, ensuring they are operating efficiently, meeting educational standards, and providing valuable feedback for continuous improvement.",
+      "studyPath": "Bachelor's or Master's Degree in Operations Management, Educational Leadership, or Mathematics (4–6 years)."
+    },
+    {
+      "career": "Math Operations Director",
+      "description": "Direct and oversee the day-to-day operations of math education programs, managing teams, resources, and logistics to ensure programs run smoothly and effectively.",
+      "studyPath": "Bachelor's or Master's Degree in Educational Leadership, Operations Management, or Mathematics (4–6 years)."
+    },
+    {
+      "career": "Educational Program Evaluator (Math Focus)",
+      "description": "Lead evaluations of math education programs, using data and observational insights to assess program effectiveness and suggest improvements.",
+      "studyPath": "Bachelor's or Master's Degree in Educational Evaluation, Mathematics, or Research (4–6 years)."
+    }
+  ]
+}
+,
+  "science_building_hands_short": {
+  "title": "Science Lab Technician",
+  "desc": "Ideal for students who like science, enjoy building and construction activities, prefer learning by doing (hands-on), and want a short-term course focused on working with scientific equipment and laboratory tasks.",
+  "careers": [
+    {
+      "career": "Laboratory Assistant",
+      "description": "Assist in the setup and operation of laboratory experiments, preparing materials, handling equipment, and ensuring safety protocols are followed.",
+      "studyPath": "Certificate or Diploma in Laboratory Technology, Science (1–2 years)."
+    },
+    {
+      "career": "Field Technician",
+      "description": "Work in the field collecting samples and conducting experiments, often supporting environmental, agricultural, or medical research.",
+      "studyPath": "Certificate or Diploma in Environmental Science, Field Research, or Laboratory Technology (1–2 years)."
+    },
+    {
+      "career": "Scientific Equipment Technician",
+      "description": "Maintain, repair, and calibrate scientific equipment used in labs, ensuring everything functions accurately for experiments and research.",
+      "studyPath": "Diploma in Engineering Technology, Applied Science, or Lab Technology (1–2 years)."
+    }
+  ]
+}
+,
+  "science_building_hands_long": {
+  "title": "Advanced Science Lab Technician",
+  "desc": "Ideal for students who like science, enjoy building and constructing experiments, and are ready for a longer, in-depth course focused on hands-on scientific work and advanced laboratory techniques.",
+  "careers": [
+    {
+      "career": "Senior Laboratory Technician",
+      "description": "Lead and manage laboratory experiments, train junior technicians, and ensure that experiments are conducted accurately, safely, and efficiently.",
+      "studyPath": "Bachelor's Degree in Laboratory Technology, Applied Science, or Engineering (4 years)."
+    },
+    {
+      "career": "Environmental Science Technician",
+      "description": "Work on large-scale environmental projects, collecting and analyzing environmental data, and ensuring compliance with regulations.",
+      "studyPath": "Bachelor's Degree in Environmental Science, Earth Sciences, or Biology (4 years)."
+    },
+    {
+      "career": "Research and Development Technician",
+      "description": "Assist in the design and execution of research projects, developing and testing new technologies, and working with scientists and engineers to bring innovations to life.",
+      "studyPath": "Bachelor's Degree in Research Technology, R&D, or a related scientific field (4 years)."
+    }
+  ]
+}
+,
+  "science_building_computer_short": {
+  "title": "Science Technology Support Specialist",
+  "desc": "Ideal for students who like science, enjoy working with computers, and prefer a short-term, hands-on course focused on integrating technology into scientific applications.",
+  "careers": [
+    {
+      "career": "Laboratory Computer Technician",
+      "description": "Support the technology needs of science labs, including maintaining and troubleshooting lab computers, software, and digital instruments used in experiments.",
+      "studyPath": "Certificate or Diploma in Information Technology, Computer Science, or Laboratory Technology (1–2 years)."
+    },
+    {
+      "career": "Scientific Software Support Specialist",
+      "description": "Assist with the setup, configuration, and maintenance of specialized scientific software used in research and laboratory environments.",
+      "studyPath": "Diploma in Computer Science, Software Support, or Scientific Computing (1–2 years)."
+    },
+    {
+      "career": "Technology Integration Assistant (Science)",
+      "description": "Help integrate digital tools, software, and technology into science classrooms and labs, supporting teachers and researchers with technical setups.",
+      "studyPath": "Certificate or Diploma in Educational Technology, IT Support, or Science (1–2 years)."
+    }
+  ]
+}
+,
+  "science_building_computer_long": {
+  "title": "Advanced Science Technology Specialist",
+  "desc": "Ideal for students who like science, enjoy advanced computer applications, and are ready for a longer, in-depth course focused on integrating sophisticated technology into scientific research and development.",
+  "careers": [
+    {
+      "career": "Science IT Systems Administrator",
+      "description": "Oversee the IT infrastructure of science labs, ensuring that all computer systems, networks, and digital tools used for research and experiments run smoothly and efficiently.",
+      "studyPath": "Bachelor's Degree in Information Technology, Computer Science, or Scientific Computing (4 years)."
+    },
+    {
+      "career": "Scientific Data Systems Manager",
+      "description": "Manage and analyze large datasets generated from scientific research, ensuring that data collection, storage, and processing are optimized and secure.",
+      "studyPath": "Bachelor's or Master's Degree in Data Science, Information Systems, or Scientific Computing (4–6 years)."
+    },
+    {
+      "career": "R&D Technology Integration Specialist",
+      "description": "Lead the integration of advanced technological systems into research and development settings, working closely with scientists to enhance data collection, analysis, and experimentation.",
+      "studyPath": "Bachelor's or Master's Degree in Research Technology, Engineering, or Computer Science (4–6 years)."
+    }
+  ]
+}
+,
+  "science_building_talk_short": {
+  "title": "Science Communication Specialist",
+  "desc": "Ideal for students who like science, enjoy talking and sharing information, and prefer a short-term, hands-on course focused on communicating scientific concepts to various audiences.",
+  "careers": [
+    {
+      "career": "Science Outreach Coordinator",
+      "description": "Develop and implement outreach programs to communicate scientific concepts to the public, schools, or specific communities, often through workshops, presentations, and events.",
+      "studyPath": "Certificate or Diploma in Science Communication, Public Relations, or Media Studies (1–2 years)."
+    },
+    {
+      "career": "Public Information Officer (Science Focus)",
+      "description": "Act as the liaison between the scientific community and the public, managing media relations and crafting clear, accessible science communication for a general audience.",
+      "studyPath": "Diploma in Public Relations, Science Communication, or Journalism (1–2 years)."
+    },
+    {
+      "career": "Science Content Writer",
+      "description": "Write articles, blog posts, and other content that explains complex scientific topics in simple, engaging ways for a broad audience.",
+      "studyPath": "Certificate or Diploma in Science Writing, Journalism, or Communications (1–2 years)."
+    }
+  ]
+}
+,
+  "science_building_talk_long": {
+  "title": "Advanced Science Communication Manager",
+  "desc": "Ideal for students who like science, enjoy leading communication efforts, and are ready for a longer, in-depth course focused on managing science communication strategies and outreach programs.",
+  "careers": [
+    {
+      "career": "Science Communication Director",
+      "description": "Lead and manage science communication efforts for organizations, including overseeing content creation, public outreach, and media relations to ensure accurate and engaging scientific messaging.",
+      "studyPath": "Bachelor's or Master's Degree in Science Communication, Public Relations, or Journalism (4–6 years)."
+    },
+    {
+      "career": "Public Relations Manager (Science Focus)",
+      "description": "Develop and implement strategic communication plans for scientific organizations, working with the media, communities, and stakeholders to promote science initiatives and research findings.",
+      "studyPath": "Bachelor's or Master's Degree in Public Relations, Science Communication, or Marketing (4–6 years)."
+    },
+    {
+      "career": "Science Program Outreach Manager",
+      "description": "Manage and expand outreach programs that communicate scientific concepts to diverse audiences, including schools, communities, and institutions, through various media and events.",
+      "studyPath": "Bachelor's or Master's Degree in Science Education, Communication, or Public Relations (4–6 years)."
+    }
+  ]
+}
+,
+  "science_building_observe_short": {
+  "title": "Science Operations Observer",
+  "desc": "Ideal for students who like science, enjoy observing experiments and processes, and prefer a short-term, hands-on course focused on monitoring and evaluating scientific activities and operations.",
+  "careers": [
+    {
+      "career": "Laboratory Operations Assistant",
+      "description": "Assist in observing and documenting lab processes and operations, ensuring that safety standards are met and experiments are conducted efficiently.",
+      "studyPath": "Certificate or Diploma in Laboratory Technology, Science, or Operations Management (1–2 years)."
+    },
+    {
+      "career": "Field Operations Technician",
+      "description": "Monitor and observe field experiments and data collection in natural or controlled environments, ensuring proper procedures are followed and data is accurately recorded.",
+      "studyPath": "Diploma in Environmental Science, Field Research, or Laboratory Technology (1–2 years)."
+    },
+    {
+      "career": "Scientific Data Recorder",
+      "description": "Observe and record data from scientific experiments or field studies, ensuring accuracy and maintaining proper records for analysis.",
+      "studyPath": "Certificate or Diploma in Data Management, Laboratory Technology, or Science (1–2 years)."
+    }
+  ]
+}
+,
+  "science_building_observe_long": {
+  "title": "Advanced Science Operations Supervisor",
+  "desc": "Ideal for students who like science, enjoy observing complex scientific processes, and are ready for a longer, in-depth course focused on supervising, monitoring, and evaluating scientific operations and experiments.",
+  "careers": [
+    {
+      "career": "Scientific Operations Manager",
+      "description": "Oversee the day-to-day operations of scientific experiments and projects, ensuring proper protocols are followed, resources are managed effectively, and experiments run smoothly.",
+      "studyPath": "Bachelor's or Master's Degree in Operations Management, Laboratory Technology, or Applied Science (4–6 years)."
+    },
+    {
+      "career": "Research Lab Supervisor",
+      "description": "Supervise and coordinate the activities of a research lab, ensuring that safety protocols are adhered to, resources are allocated efficiently, and data is accurately collected and analyzed.",
+      "studyPath": "Bachelor's or Master's Degree in Laboratory Science, Research Management, or Science (4–6 years)."
+    },
+    {
+      "career": "Environmental Research Supervisor",
+      "description": "Manage and supervise field and laboratory research projects, ensuring the collection of accurate data, proper execution of experiments, and effective analysis of environmental variables.",
+      "studyPath": "Bachelor's or Master's Degree in Environmental Science, Research, or Biology (4–6 years)."
+    }
+  ]
+}
+,
+  "science_helping_hands_short": {
+  "title": "Science Support Technician",
+  "desc": "Ideal for students who like science, enjoy assisting with experiments and research, and prefer a short-term, hands-on course focused on providing support in scientific labs and fieldwork.",
+  "careers": [
+    {
+      "career": "Laboratory Assistant",
+      "description": "Assist scientists and researchers in setting up, conducting, and cleaning up experiments, as well as managing lab materials and equipment.",
+      "studyPath": "Certificate or Diploma in Laboratory Technology, Science (1–2 years)."
+    },
+    {
+      "career": "Field Support Technician",
+      "description": "Provide support in field research by preparing equipment, assisting with data collection, and maintaining research stations or field sites.",
+      "studyPath": "Certificate or Diploma in Environmental Science, Field Research, or Science (1–2 years)."
+    },
+    {
+      "career": "Research Assistant",
+      "description": "Assist with research activities by performing routine tasks such as data collection, document management, and supporting scientists during experiments.",
+      "studyPath": "Certificate or Diploma in Research, Laboratory Science, or Applied Science (1–2 years)."
+    }
+  ]
+}
+,
+  "science_helping_hands_long": {
+  "title": "Advanced Science Support Specialist",
+  "desc": "Ideal for students who like science, enjoy hands-on support roles, and are ready for a longer, in-depth course focused on providing advanced support for scientific research, experiments, and operations.",
+  "careers": [
+    {
+      "career": "Senior Laboratory Technician",
+      "description": "Lead and support laboratory teams by overseeing day-to-day operations, assisting in complex experiments, and ensuring that lab protocols and safety standards are followed.",
+      "studyPath": "Bachelor's Degree in Laboratory Technology, Applied Science, or Engineering (4 years)."
+    },
+    {
+      "career": "Field Research Coordinator",
+      "description": "Coordinate and manage field research projects, ensuring that field teams have the necessary support, equipment, and data collection tools to carry out experiments successfully.",
+      "studyPath": "Bachelor's or Master's Degree in Environmental Science, Field Research, or Biology (4–6 years)."
+    },
+    {
+      "career": "Research Operations Supervisor",
+      "description": "Oversee the logistics and operations of research projects, managing resources, coordinating teams, and ensuring that all research activities are conducted effectively and efficiently.",
+      "studyPath": "Bachelor's or Master's Degree in Research Management, Operations Management, or Applied Science (4–6 years)."
+    }
+  ]
+}
+,
+  "science_helping_computer_short": {
+  "title": "Science Technology Support Specialist",
+  "desc": "Ideal for students who like science, enjoy working with computers, and prefer a short-term course focused on supporting the technological needs of scientific research and labs.",
+  "careers": [
+    {
+      "career": "Laboratory IT Support Technician",
+      "description": "Provide technical support for laboratory computers and digital equipment, troubleshooting hardware and software issues, and assisting in the integration of new technologies.",
+      "studyPath": "Certificate or Diploma in Information Technology, Computer Science, or Laboratory Technology (1–2 years)."
+    },
+    {
+      "career": "Scientific Software Assistant",
+      "description": "Assist in setting up, maintaining, and troubleshooting scientific software used in experiments and data analysis, ensuring that researchers have the tools they need to work efficiently.",
+      "studyPath": "Diploma in Software Support, Scientific Computing, or Computer Science (1–2 years)."
+    },
+    {
+      "career": "Data Management Assistant",
+      "description": "Support scientists and researchers by organizing and managing data collected during experiments, ensuring proper storage, analysis, and documentation.",
+      "studyPath": "Certificate or Diploma in Data Management, IT Support, or Scientific Computing (1–2 years)."
+    }
+  ]
+}
+,
+  "science_helping_computer_long": {
+  "title": "Advanced Science Technology Support Specialist",
+  "desc": "Ideal for students who like science, enjoy advanced computer applications, and are ready for a longer, in-depth course focused on managing and supporting technological operations in scientific research and labs.",
+  "careers": [
+    {
+      "career": "Laboratory IT Systems Manager",
+      "description": "Oversee and manage the IT infrastructure of scientific laboratories, ensuring the proper functioning of all computers, software, and digital tools used in research and experiments.",
+      "studyPath": "Bachelor's Degree in Information Technology, Computer Science, or Scientific Computing (4 years)."
+    },
+    {
+      "career": "Scientific Data Systems Administrator",
+      "description": "Manage large-scale data systems for scientific research, ensuring the collection, storage, and analysis of research data is optimized and secure.",
+      "studyPath": "Bachelor's or Master's Degree in Data Science, Information Systems, or Scientific Computing (4–6 years)."
+    },
+    {
+      "career": "Technology Integration Specialist (Science)",
+      "description": "Lead the integration of advanced technology into scientific research processes, ensuring that digital tools, software, and data systems are effectively implemented and supported.",
+      "studyPath": "Bachelor's or Master's Degree in Research Technology, Engineering, or Computer Science (4–6 years)."
+    }
+  ]
+}
+,
+  "science_helping_talk_short": {
+  "title": "Science Communication Support Specialist",
+  "desc": "Ideal for students who like science, enjoy talking and sharing information, and prefer a short-term, hands-on course focused on assisting with the communication of scientific concepts to the public and stakeholders.",
+  "careers": [
+    {
+      "career": "Science Outreach Assistant",
+      "description": "Support the planning and execution of science outreach programs, helping to communicate scientific concepts through public presentations, workshops, and events.",
+      "studyPath": "Certificate or Diploma in Science Communication, Public Relations, or Media Studies (1–2 years)."
+    },
+    {
+      "career": "Public Relations Assistant (Science Focus)",
+      "description": "Assist in managing media relations, crafting press releases, and helping to promote science-related initiatives through various communication channels.",
+      "studyPath": "Diploma in Public Relations, Science Communication, or Journalism (1–2 years)."
+    },
+    {
+      "career": "Science Content Assistant",
+      "description": "Help create science-related content such as articles, blogs, and social media posts that explain complex topics in a way that is accessible to the general public.",
+      "studyPath": "Certificate or Diploma in Science Writing, Journalism, or Communications (1–2 years)."
+    }
+  ]
+}
+,
+  "science_helping_talk_long": {
+  "title": "Advanced Science Communication Manager",
+  "desc": "Ideal for students who like science, enjoy leading communication efforts, and are ready for a longer, in-depth course focused on managing science communication strategies and outreach programs.",
+  "careers": [
+    {
+      "career": "Science Communication Director",
+      "description": "Lead and manage science communication efforts, overseeing content creation, public outreach, and media relations to ensure accurate and engaging scientific messaging.",
+      "studyPath": "Bachelor's or Master's Degree in Science Communication, Public Relations, or Journalism (4–6 years)."
+    },
+    {
+      "career": "Public Relations Manager (Science Focus)",
+      "description": "Develop and implement strategic communication plans for scientific organizations, working with the media, communities, and stakeholders to promote science initiatives and research findings.",
+      "studyPath": "Bachelor's or Master's Degree in Public Relations, Science Communication, or Marketing (4–6 years)."
+    },
+    {
+      "career": "Science Program Outreach Manager",
+      "description": "Manage and expand outreach programs that communicate scientific concepts to diverse audiences, including schools, communities, and institutions, through various media and events.",
+      "studyPath": "Bachelor's or Master's Degree in Science Education, Communication, or Public Relations (4–6 years)."
+    }
+  ]
+}
+,
+  "science_helping_observe_short": {
+  "title": "Science Observation Support Specialist",
+  "desc": "Ideal for students who like science, enjoy observing experiments and research processes, and prefer a short-term, hands-on course focused on assisting in monitoring and documenting scientific operations.",
+  "careers": [
+    {
+      "career": "Laboratory Observation Assistant",
+      "description": "Assist researchers by observing experiments, documenting results, and ensuring proper procedures and safety standards are followed during scientific studies.",
+      "studyPath": "Certificate or Diploma in Laboratory Technology, Science, or Research Support (1–2 years)."
+    },
+    {
+      "career": "Field Observation Technician",
+      "description": "Provide support during field experiments by observing data collection, recording observations, and ensuring that protocols are adhered to in outdoor research settings.",
+      "studyPath": "Certificate or Diploma in Environmental Science, Field Research, or Science (1–2 years)."
+    },
+    {
+      "career": "Data Entry and Observation Specialist",
+      "description": "Assist in recording, managing, and organizing observational data collected during experiments or field studies, ensuring accurate documentation for future analysis.",
+      "studyPath": "Certificate or Diploma in Data Management, Laboratory Technology, or Science (1–2 years)."
+    }
+  ]
+}
+,
+  "science_helping_observe_long": {
+  "title": "Advanced Science Observation Specialist",
+  "desc": "Ideal for students who like science, enjoy observing complex scientific processes, and are ready for a longer, in-depth course focused on managing, overseeing, and analyzing scientific observations in research and field operations.",
+  "careers": [
+    {
+      "career": "Research Observation Coordinator",
+      "description": "Coordinate and supervise the observation activities within research projects, ensuring that all data is accurately recorded, protocols are followed, and observations are documented effectively.",
+      "studyPath": "Bachelor's or Master's Degree in Research, Laboratory Science, or Applied Science (4–6 years)."
+    },
+    {
+      "career": "Field Research Supervisor",
+      "description": "Manage and oversee field research teams, ensuring proper documentation of observational data, monitoring the progress of experiments, and ensuring the adherence to research protocols and safety standards.",
+      "studyPath": "Bachelor's or Master's Degree in Environmental Science, Research Management, or Biology (4–6 years)."
+    },
+    {
+      "career": "Scientific Data Analyst (Observations)",
+      "description": "Analyze and interpret observational data collected from experiments and field studies, preparing reports and recommendations based on findings and ensuring the accuracy of research outcomes.",
+      "studyPath": "Bachelor's or Master's Degree in Data Science, Applied Research, or Statistics (4–6 years)."
+    }
+  ]
+}
+,
+  "science_creating_hands_short": {
+  "title": "Science Lab Creation Technician",
+  "desc": "Ideal for students who like science, enjoy creating hands-on projects, and prefer a short-term, practical course focused on building and developing scientific tools and experiments.",
+  "careers": [
+    {
+      "career": "Lab Equipment Technician",
+      "description": "Design, build, and maintain laboratory equipment and instruments used in scientific research and experiments, ensuring they meet quality and safety standards.",
+      "studyPath": "Certificate or Diploma in Laboratory Technology, Engineering, or Applied Science (1–2 years)."
+    },
+    {
+      "career": "Scientific Model Builder",
+      "description": "Construct physical models or prototypes used in scientific experiments or educational demonstrations, ensuring they accurately represent scientific concepts.",
+      "studyPath": "Certificate or Diploma in Model Making, Science, or Engineering (1–2 years)."
+    },
+    {
+      "career": "Research Instrument Fabricator",
+      "description": "Create custom tools and instruments for scientific research, working with scientists to design and fabricate devices needed for specific experiments.",
+      "studyPath": "Diploma in Engineering Technology, Fabrication, or Applied Science (1–2 years)."
+    }
+  ]
+}
+,
+  "science_creating_hands_long": {
+  "title": "Advanced Science Lab Creation Specialist",
+  "desc": "Ideal for students who like science, enjoy creating complex projects, and are ready for a longer, in-depth course focused on designing, building, and managing advanced scientific instruments and tools for research and development.",
+  "careers": [
+    {
+      "career": "Senior Laboratory Equipment Engineer",
+      "description": "Lead the design, creation, and maintenance of sophisticated scientific equipment and laboratory systems, ensuring they meet research specifications and industry standards.",
+      "studyPath": "Bachelor's or Master's Degree in Engineering, Laboratory Technology, or Applied Science (4–6 years)."
+    },
+    {
+      "career": "Scientific Prototype Development Specialist",
+      "description": "Manage the development of scientific prototypes for new research methods or tools, working closely with scientists and engineers to bring ideas from concept to functional prototype.",
+      "studyPath": "Bachelor's or Master's Degree in Engineering, Product Design, or Applied Science (4–6 years)."
+    },
+    {
+      "career": "Research Instrument Design Manager",
+      "description": "Oversee the design and fabrication of specialized research instruments, ensuring they meet the needs of scientific experiments and that the manufacturing processes align with research goals.",
+      "studyPath": "Bachelor's or Master's Degree in Mechanical Engineering, Instrumentation, or Applied Science (4–6 years)."
+    }
+  ]
+}
+,
+"science_creating_computer_short": {
+  "title": "Science Technology Developer",
+  "desc": "Ideal for students who like science, enjoy working with computers, and prefer a short-term course focused on creating and developing software and systems to support scientific research and experiments.",
+  "careers": [
+    {
+      "career": "Scientific Software Developer",
+      "description": "Design and develop software tools used in scientific research, including data analysis programs, simulation software, and tools for managing research data.",
+      "studyPath": "Certificate or Diploma in Computer Science, Software Development, or Applied Science (1–2 years)."
+    },
+    {
+      "career": "Data Science Programmer",
+      "description": "Write and optimize code for handling large sets of scientific data, building programs to analyze, process, and visualize data for research purposes.",
+      "studyPath": "Certificate or Diploma in Data Science, Computer Programming, or Applied Science (1–2 years)."
+    },
+    {
+      "career": "Research Computing Assistant",
+      "description": "Support research teams by developing and maintaining computing tools and systems that assist with data collection, modeling, and other scientific operations.",
+      "studyPath": "Certificate or Diploma in Research Computing, IT Support, or Science (1–2 years)."
+    }
+  ]
+}
+,
+  "science_creating_computer_long": {
+  "title": "Advanced Science Computing Developer",
+  "desc": "Ideal for students who like science, enjoy advanced computer applications, and are ready for a longer, in-depth course focused on developing complex software and systems that support advanced scientific research, experiments, and data analysis.",
+  "careers": [
+    {
+      "career": "Senior Scientific Software Architect",
+      "description": "Design and lead the development of large-scale software systems and tools that enable cutting-edge scientific research, from simulations to complex data analysis platforms.",
+      "studyPath": "Bachelor's or Master's Degree in Computer Science, Software Engineering, or Computational Science (4–6 years)."
+    },
+    {
+      "career": "Big Data Scientist (Science Focus)",
+      "description": "Develop and implement solutions for managing and analyzing large datasets in scientific research, utilizing advanced computational methods and machine learning techniques.",
+      "studyPath": "Bachelor's or Master's Degree in Data Science, Computational Science, or Applied Mathematics (4–6 years)."
+    },
+    {
+      "career": "Research Computing Systems Manager",
+      "description": "Oversee the development and maintenance of the computing infrastructure used in scientific research, ensuring the scalability, security, and performance of systems that support high-performance computing and data analysis.",
+      "studyPath": "Bachelor's or Master's Degree in Systems Engineering, Computational Science, or Computer Science (4–6 years)."
+    }
+  ]
+}
+,
+ "science_creating_talk_short": {
+  "title": "Science Communication Specialist",
+  "desc": "Ideal for students who like science, enjoy creating and delivering engaging content, and prefer a short-term course focused on developing communication strategies to present scientific topics effectively.",
+  "careers": [
+    {
+      "career": "Science Content Producer",
+      "description": "Create engaging content related to scientific topics, including articles, videos, and podcasts, aimed at making complex scientific concepts accessible to a wide audience.",
+      "studyPath": "Certificate or Diploma in Science Communication, Journalism, or Media Studies (1–2 years)."
+    },
+    {
+      "career": "Public Science Presenter",
+      "description": "Develop and present interactive science programs for public audiences, schools, and educational institutions, aiming to spark interest and understanding in science.",
+      "studyPath": "Certificate or Diploma in Science Communication, Public Speaking, or Education (1–2 years)."
+    },
+    {
+      "career": "Digital Science Outreach Specialist",
+      "description": "Use digital platforms like social media, blogs, and websites to communicate science-related topics, creating interactive and engaging content to reach a broad audience.",
+      "studyPath": "Certificate or Diploma in Digital Media, Science Communication, or Marketing (1–2 years)."
+    }
+  ]
+}
+,
+  "science_creating_talk_long": {
+  "title": "Advanced Science Communication Specialist",
+  "desc": "Ideal for students who like science, enjoy communicating complex ideas, and are ready for a longer, in-depth course focused on creating, presenting, and managing communication strategies for scientific organizations and research projects.",
+  "careers": [
+    {
+      "career": "Science Communication Manager",
+      "description": "Lead the development of communication strategies to share scientific findings with the public, media, and stakeholders, translating complex research into accessible content.",
+      "studyPath": "Bachelor's or Master's Degree in Science Communication, Journalism, or Public Relations (4–6 years)."
+    },
+    {
+      "career": "Scientific Public Relations Officer",
+      "description": "Represent scientific organizations by creating press releases, managing media relations, and ensuring accurate public representation of scientific initiatives and discoveries.",
+      "studyPath": "Bachelor's or Master's Degree in Public Relations, Communications, or Science Communication (4–6 years)."
+    },
+    {
+      "career": "Science Policy Advisor",
+      "description": "Communicate scientific research to policymakers and the public, helping bridge the gap between science and government decision-making through reports, presentations, and campaigns.",
+      "studyPath": "Bachelor's or Master's Degree in Science Policy, Public Administration, or Science Communication (4–6 years)."
+    }
+  ]
+}
+,
+ "science_creating_observe_short": {
+  "title": "Science Lab Support Technician",
+  "desc": "Ideal for students who like science, enjoy observing experiments and data, and prefer a short-term course focused on supporting scientific research through careful monitoring and documentation.",
+  "careers": [
+    {
+      "career": "Lab Assistant",
+      "description": "Assist scientists by preparing experiments, observing outcomes, recording data, and maintaining laboratory equipment.",
+      "studyPath": "Certificate or Diploma in Laboratory Technology or Applied Science (1–2 years)."
+    },
+    {
+      "career": "Research Technician",
+      "description": "Support research projects by setting up experiments, observing results, and ensuring accurate data collection and reporting.",
+      "studyPath": "Certificate or Diploma in Research Support or Biological/Physical Sciences (1–2 years)."
+    },
+    {
+      "career": "Quality Control Technician",
+      "description": "Observe and test products or materials in laboratory settings to ensure they meet specific scientific and safety standards.",
+      "studyPath": "Certificate or Diploma in Quality Assurance, Laboratory Technology, or Applied Science (1–2 years)."
+    }
+  ]
+}
+,
+  "science_creating_observe_long": {
+  "title": "Advanced Scientific Research Technician",
+  "desc": "Ideal for students who like science, excel at observing and analyzing experiments, and are ready for a longer, in-depth course focused on supporting and advancing scientific discoveries through detailed research observation and analysis.",
+  "careers": [
+    {
+      "career": "Senior Research Technician",
+      "description": "Assist in complex scientific research projects by designing experiments, carefully observing results, collecting precise data, and helping to interpret findings.",
+      "studyPath": "Bachelor's or Master's Degree in Biology, Chemistry, Physics, or Laboratory Technology (4–6 years)."
+    },
+    {
+      "career": "Clinical Research Coordinator",
+      "description": "Manage and monitor clinical research trials, ensuring accurate observation, data collection, and adherence to scientific and ethical standards.",
+      "studyPath": "Bachelor's Degree in Clinical Research, Health Sciences, or Life Sciences (4–5 years)."
+    },
+    {
+      "career": "Quality Assurance Scientist",
+      "description": "Observe and assess scientific processes and results in laboratories or production facilities to ensure compliance with quality standards and regulations.",
+      "studyPath": "Bachelor's or Master's Degree in Quality Assurance, Laboratory Science, or Applied Science (4–6 years)."
+    }
+  ]
+}
+,
+  "science_managing_hands_short": {
+  "title": "Science Laboratory Coordinator",
+  "desc": "Ideal for students who like science, enjoy managing activities and resources, prefer working with their hands, and want a short-term course focused on organizing and supporting laboratory operations.",
+  "careers": [
+    {
+      "career": "Lab Operations Assistant",
+      "description": "Help manage laboratory supplies, equipment, and schedules to ensure smooth day-to-day operations in research or educational labs.",
+      "studyPath": "Certificate or Diploma in Laboratory Management, Applied Science, or Laboratory Technology (1–2 years)."
+    },
+    {
+      "career": "Science Project Assistant",
+      "description": "Support scientific teams by coordinating fieldwork or lab activities, tracking project progress, and ensuring resources are available for experiments.",
+      "studyPath": "Certificate or Diploma in Project Coordination, Laboratory Technology, or Science (1–2 years)."
+    },
+    {
+      "career": "Environmental Field Technician",
+      "description": "Assist in managing and conducting field studies by setting up equipment, collecting environmental samples, and maintaining detailed records.",
+      "studyPath": "Certificate or Diploma in Environmental Science, Field Technology, or Applied Science (1–2 years)."
+    }
+  ]
+}
+,
+  "science_managing_hands_long": {
+  "title": "Advanced Science Laboratory Manager",
+  "desc": "Ideal for students who like science, enjoy managing hands-on activities and laboratory operations, and are ready for a longer, in-depth course focused on leading scientific teams and projects.",
+  "careers": [
+    {
+      "career": "Laboratory Manager",
+      "description": "Oversee the daily operations of scientific laboratories, including staff supervision, budgeting, equipment maintenance, and ensuring compliance with safety standards.",
+      "studyPath": "Bachelor's Degree in Laboratory Technology, Applied Science, or Laboratory Management (4 years)."
+    },
+    {
+      "career": "Field Research Supervisor",
+      "description": "Manage teams conducting environmental or scientific field research, coordinating logistics, safety, and data collection activities.",
+      "studyPath": "Bachelor's Degree in Environmental Science, Field Research Management, or Natural Sciences (4–5 years)."
+    },
+    {
+      "career": "Scientific Project Manager",
+      "description": "Lead scientific research projects by planning activities, allocating resources, managing timelines, and ensuring that project goals are achieved efficiently.",
+      "studyPath": "Bachelor's or Master's Degree in Project Management, Science, or Research Administration (4–6 years)."
+    }
+  ]
+}
+,
+  "science_managing_computer_short": {
+  "title": "Science Data Management Technician",
+  "desc": "Ideal for students who like science, enjoy working with computers to organize and manage information, and prefer a short-term course focused on handling scientific data and systems.",
+  "careers": [
+    {
+      "career": "Scientific Data Clerk",
+      "description": "Organize, maintain, and update scientific records and databases, ensuring accuracy and accessibility for research teams.",
+      "studyPath": "Certificate or Diploma in Data Management, Information Science, or Laboratory Technology (1–2 years)."
+    },
+    {
+      "career": "Laboratory Information Systems Assistant",
+      "description": "Support the management of computer systems that store and process laboratory data, ensuring smooth operation and data integrity.",
+      "studyPath": "Certificate or Diploma in Laboratory Information Systems, Health Information Technology, or Applied Science (1–2 years)."
+    },
+    {
+      "career": "Research Data Technician",
+      "description": "Assist scientists by entering, tracking, and managing research data using specialized computer systems and software.",
+      "studyPath": "Certificate or Diploma in Research Data Management, Science Technology, or Computer Applications (1–2 years)."
+    }
+  ]
+}
+,
+  "science_managing_computer_long": {
+  "title": "Advanced Scientific Data Manager",
+  "desc": "Ideal for students who like science, excel at using computers, and are ready for a longer, in-depth course focused on managing complex scientific databases, research systems, and digital information.",
+  "careers": [
+    {
+      "career": "Scientific Database Administrator",
+      "description": "Design, manage, and maintain complex databases that store research data, ensuring data security, accuracy, and accessibility for scientific teams.",
+      "studyPath": "Bachelor's or Master's Degree in Information Science, Database Management, or Bioinformatics (4–6 years)."
+    },
+    {
+      "career": "Research Informatics Specialist",
+      "description": "Develop and manage informatics systems that support scientific research, helping researchers organize, analyze, and share large data sets.",
+      "studyPath": "Bachelor's or Master's Degree in Research Informatics, Computational Science, or Health Information Management (4–6 years)."
+    },
+    {
+      "career": "Scientific IT Project Manager",
+      "description": "Lead technology projects that involve the creation and management of IT systems for scientific organizations, ensuring smooth digital workflows and data management.",
+      "studyPath": "Bachelor's or Master's Degree in Project Management, Information Technology, or Science Informatics (4–6 years)."
+    }
+  ]
+}
+,
+  "science_managing_talk_short": {
+  "title": "Science Outreach Coordinator",
+  "desc": "Ideal for students who like science, enjoy organizing events and talking with people, and prefer a short-term course focused on supporting scientific programs and public engagement activities.",
+  "careers": [
+    {
+      "career": "Science Program Assistant",
+      "description": "Support the planning and coordination of science education programs, workshops, and events for schools, museums, and community groups.",
+      "studyPath": "Certificate or Diploma in Event Management, Science Communication, or Education Support (1–2 years)."
+    },
+    {
+      "career": "Public Engagement Assistant",
+      "description": "Assist in developing and delivering public science outreach activities, ensuring effective communication between scientists and the community.",
+      "studyPath": "Certificate or Diploma in Public Relations, Communication, or Science Outreach (1–2 years)."
+    },
+    {
+      "career": "Community Science Liaison",
+      "description": "Facilitate communication between research teams and community organizations, helping share scientific knowledge and gather public input.",
+      "studyPath": "Certificate or Diploma in Community Engagement, Science Communication, or Applied Science (1–2 years)."
+    }
+  ]
+}
+,
+  "science_managing_talk_long": {
+  "title": "Advanced Science Communications Manager",
+  "desc": "Ideal for students who like science, enjoy leading communication efforts, and are ready for a longer, in-depth course focused on managing science communication strategies, public relations, and outreach programs.",
+  "careers": [
+    {
+      "career": "Science Communications Manager",
+      "description": "Develop and oversee strategies for communicating scientific research to the public, policymakers, and the media, ensuring clear and accurate messaging.",
+      "studyPath": "Bachelor's or Master's Degree in Science Communication, Public Relations, or Journalism (4–6 years)."
+    },
+    {
+      "career": "Scientific Outreach Director",
+      "description": "Lead outreach and education initiatives for scientific organizations, building partnerships with schools, media, and the public to promote scientific literacy.",
+      "studyPath": "Bachelor's or Master's Degree in Public Engagement, Science Communication, or Education Leadership (4–6 years)."
+    },
+    {
+      "career": "Policy and Science Advisor",
+      "description": "Act as a liaison between scientific communities and government agencies, communicating complex scientific information to support informed policymaking.",
+      "studyPath": "Bachelor's or Master's Degree in Science Policy, Public Administration, or Science Communication (4–6 years)."
+    }
+  ]
+}
+,
+  "science_managing_observe_short": {
+  "title": "Science Operations Assistant",
+  "desc": "Ideal for students who like science, enjoy observing and assisting with operations, and prefer a short-term course focused on supporting scientific teams and ensuring smooth lab and field operations.",
+  "careers": [
+    {
+      "career": "Operations Support Technician",
+      "description": "Assist scientific teams by observing operations, managing resources, and ensuring that experiments or field studies run efficiently and according to plan.",
+      "studyPath": "Certificate or Diploma in Laboratory Technology, Applied Science, or Operations Management (1–2 years)."
+    },
+    {
+      "career": "Research Support Technician",
+      "description": "Support the daily activities of research teams by observing procedures, monitoring resources, and documenting research progress in both lab and field environments.",
+      "studyPath": "Certificate or Diploma in Research Technology, Science Support, or Applied Science (1–2 years)."
+    },
+    {
+      "career": "Field Operations Coordinator",
+      "description": "Coordinate and monitor field-based scientific operations, ensuring equipment, materials, and teams are prepared and functioning during studies or research projects.",
+      "studyPath": "Certificate or Diploma in Field Operations, Environmental Science, or Applied Science (1–2 years)."
+    }
+  ]
+}
+,
+  "science_managing_observe_long": {
+  "title": "Advanced Science Operations Manager",
+  "desc": "Ideal for students who like science, enjoy observing complex processes, and are ready for a longer, in-depth course focused on managing and overseeing scientific operations and teams in research, lab, and field environments.",
+  "careers": [
+    {
+      "career": "Scientific Operations Manager",
+      "description": "Manage the operations of scientific research teams, ensuring the effective coordination of projects, resources, and compliance with safety and quality standards.",
+      "studyPath": "Bachelor's or Master's Degree in Operations Management, Science, or Laboratory Management (4–6 years)."
+    },
+    {
+      "career": "Research Project Coordinator",
+      "description": "Oversee scientific research projects from start to finish, managing logistics, teams, and resources, while ensuring research goals are achieved within timelines and budgets.",
+      "studyPath": "Bachelor's or Master's Degree in Project Management, Science, or Research Administration (4–6 years)."
+    },
+    {
+      "career": "Environmental Research Operations Director",
+      "description": "Lead and manage large-scale environmental research projects, overseeing field operations, team coordination, data collection, and ensuring adherence to environmental standards.",
+      "studyPath": "Bachelor's or Master's Degree in Environmental Science, Research Operations, or Applied Science (4–6 years)."
+    }
+  ]
+}
+,
+  "drawing_building_hands_short": {
+  "title": "Construction Drafting Technician",
+  "desc": "Ideal for students who like drawing, enjoy building, and prefer a hands-on approach to creating technical drawings for construction and building projects.",
+  "careers": [
+    {
+      "career": "Drafting Technician",
+      "description": "Create technical drawings and blueprints for construction projects using drafting software and manual techniques, ensuring accurate design specifications.",
+      "studyPath": "Certificate or Diploma in Drafting, CAD Technology, or Architectural Technology (1–2 years)."
+    },
+    {
+      "career": "Construction Estimator",
+      "description": "Prepare cost estimates for construction projects based on blueprints, designs, and material requirements.",
+      "studyPath": "Certificate or Diploma in Construction Management, Estimation, or Engineering Technology (1–2 years)."
+    },
+    {
+      "career": "Site Planner",
+      "description": "Assist in creating site plans and layouts for construction projects, ensuring that designs comply with regulations and site-specific requirements.",
+      "studyPath": "Certificate or Diploma in Construction Planning, Drafting, or Site Design (1–2 years)."
+    }
+  ]
+}
+,
+ "drawing_building_hands_long": {
+  "title": "Advanced Construction Drafting Specialist",
+  "desc": "Ideal for students who like drawing, enjoy building, and are ready for a longer, in-depth course focused on creating advanced technical drawings and managing building projects.",
+  "careers": [
+    {
+      "career": "Senior Drafting Technician",
+      "description": "Lead the creation of technical drawings and blueprints for large-scale construction projects, coordinating with architects and engineers to ensure precision and feasibility.",
+      "studyPath": "Bachelor's Degree in Architectural Technology, Civil Engineering, or Construction Management (4 years)."
+    },
+    {
+      "career": "Construction Project Manager",
+      "description": "Manage all aspects of construction projects, from initial design and planning to overseeing construction and ensuring compliance with building codes and safety regulations.",
+      "studyPath": "Bachelor's or Master's Degree in Construction Management, Civil Engineering, or Project Management (4–6 years)."
+    },
+    {
+      "career": "Building Information Modeling (BIM) Specialist",
+      "description": "Develop and manage 3D models of construction projects, ensuring that all aspects of the design, construction, and operation of a building are accurately represented.",
+      "studyPath": "Bachelor's Degree in Architecture, Civil Engineering, or BIM Technology (4 years)."
+    }
+  ]
+}
+,
+  "drawing_building_computer_short": {
+  "title": "CAD Design Technician",
+  "desc": "Ideal for students who enjoy drawing, building, and using computers to create technical designs and blueprints for construction and manufacturing projects.",
+  "careers": [
+    {
+      "career": "CAD Technician",
+      "description": "Use computer-aided design (CAD) software to create detailed technical drawings and blueprints for construction projects, ensuring accuracy and precision.",
+      "studyPath": "Certificate or Diploma in Computer-Aided Design (CAD), Engineering Drafting, or Architectural Technology (1–2 years)."
+    },
+    {
+      "career": "3D Modeling Technician",
+      "description": "Create 3D models of construction and manufacturing projects using specialized software, enabling visualization and simulation of designs before construction begins.",
+      "studyPath": "Certificate or Diploma in 3D Modeling, CAD Technology, or Digital Design (1–2 years)."
+    },
+    {
+      "career": "BIM Coordinator",
+      "description": "Support the implementation and management of Building Information Modeling (BIM) technology in construction projects, ensuring the digital model is accurate and integrates with other project data.",
+      "studyPath": "Certificate or Diploma in BIM Technology, Architecture, or Civil Engineering (1–2 years)."
+    }
+  ]
+}
+,
+  "drawing_building_computer_long": {
+  "title": "Advanced CAD and BIM Specialist",
+  "desc": "Ideal for students who enjoy drawing, building, and using advanced computer software for creating highly detailed technical designs and managing complex construction projects.",
+  "careers": [
+    {
+      "career": "Senior CAD Designer",
+      "description": "Lead the creation of complex, detailed technical drawings and 3D models for large-scale construction projects, using advanced CAD and BIM software to ensure design accuracy.",
+      "studyPath": "Bachelor's Degree in CAD Technology, Architecture, or Engineering Design (4 years)."
+    },
+    {
+      "career": "Building Information Modeling (BIM) Manager",
+      "description": "Manage the BIM process in construction projects, overseeing the creation, integration, and management of digital models, coordinating between architects, engineers, and contractors.",
+      "studyPath": "Bachelor's or Master's Degree in BIM Technology, Architecture, or Civil Engineering (4–6 years)."
+    },
+    {
+      "career": "Construction Project Engineer",
+      "description": "Oversee the planning and execution of construction projects, using advanced software tools to ensure the design, budget, and timelines are accurately followed.",
+      "studyPath": "Bachelor's or Master's Degree in Civil Engineering, Construction Management, or Project Engineering (4–6 years)."
+    }
+  ]
+}
+,
+ "drawing_building_talk_short": {
+  "title": "Construction Drafting Communicator",
+  "desc": "Ideal for students who enjoy drawing, building, and talking to others, particularly in communicating construction and design concepts with clients, architects, and construction teams.",
+  "careers": [
+    {
+      "career": "Client Relations Assistant",
+      "description": "Assist in communicating construction designs and updates to clients, ensuring that their needs are addressed and that they understand the progress of their projects.",
+      "studyPath": "Certificate or Diploma in Construction Management, Communication, or Client Relations (1–2 years)."
+    },
+    {
+      "career": "Design Consultant Assistant",
+      "description": "Support design teams by conveying ideas and feedback from clients, ensuring that the design meets both client expectations and technical requirements.",
+      "studyPath": "Certificate or Diploma in Architecture, Construction Design, or Communication (1–2 years)."
+    },
+    {
+      "career": "Project Coordinator",
+      "description": "Communicate between construction teams, architects, and clients to ensure that the project design is clearly understood and implemented throughout the construction process.",
+      "studyPath": "Certificate or Diploma in Project Management, Construction, or Communication (1–2 years)."
+    }
+  ]
+}
+,
+  "drawing_building_talk_long": {
+  "title": "Advanced Construction Communication Specialist",
+  "desc": "Ideal for students who enjoy drawing, building, and are skilled in communicating complex construction concepts to clients, architects, and teams, with an emphasis on leadership and project coordination.",
+  "careers": [
+    {
+      "career": "Construction Project Manager",
+      "description": "Lead construction projects from start to finish, coordinating between architects, engineers, contractors, and clients, ensuring clear communication throughout the project lifecycle.",
+      "studyPath": "Bachelor's or Master's Degree in Construction Management, Project Management, or Civil Engineering (4–6 years)."
+    },
+    {
+      "career": "Architectural Design Manager",
+      "description": "Oversee the design process for construction projects, managing a team of designers and drafters while communicating effectively with clients and stakeholders to ensure the final design meets all requirements.",
+      "studyPath": "Bachelor's or Master's Degree in Architecture, Design Management, or Construction Design (4–6 years)."
+    },
+    {
+      "career": "Building Information Modeling (BIM) Manager",
+      "description": "Manage and communicate the use of BIM in large-scale construction projects, ensuring all stakeholders are aligned and that the digital model integrates smoothly into the construction process.",
+      "studyPath": "Bachelor's or Master's Degree in BIM Technology, Architecture, or Civil Engineering (4–6 years)."
+    }
+  ]
+},
+
+  "drawing_building_observe_short": {
+  "title": "Construction Drafting Assistant",
+  "desc": "Ideal for students who enjoy drawing, building, and observing construction processes, focusing on assisting professionals by observing designs and construction progress.",
+  "careers": [
+    {
+      "career": "Drafting Assistant",
+      "description": "Support the drafting team by observing and assisting in the preparation of technical drawings for construction projects, ensuring accuracy and adherence to design specifications.",
+      "studyPath": "Certificate or Diploma in Drafting, CAD Technology, or Architectural Technology (1–2 years)."
+    },
+    {
+      "career": "Construction Site Assistant",
+      "description": "Observe and assist in construction activities on-site, ensuring that the plans and designs are being followed, and assist in making necessary adjustments as per the design specifications.",
+      "studyPath": "Certificate or Diploma in Construction, Site Management, or Civil Engineering (1–2 years)."
+    },
+    {
+      "career": "Project Observation Assistant",
+      "description": "Assist in the observation of ongoing construction projects, ensuring that they are in line with the approved drawings and design specifications, and providing feedback to project managers.",
+      "studyPath": "Certificate or Diploma in Project Management, Civil Engineering, or Construction Technology (1–2 years)."
+    }
+  ]
+}
+,
+  "drawing_building_observe_long": {
+  "title": "Advanced Construction Drafting and Observation Specialist",
+  "desc": "Ideal for students who enjoy drawing, building, and observing complex construction processes, with an emphasis on ensuring designs are properly implemented and projects stay on track.",
+  "careers": [
+    {
+      "career": "Senior Drafting Technician",
+      "description": "Lead and oversee the creation of detailed construction drawings and technical plans, ensuring they are followed precisely throughout the construction process and helping to resolve issues on-site.",
+      "studyPath": "Bachelor's Degree in Architecture, Civil Engineering, or Construction Technology (4 years)."
+    },
+    {
+      "career": "Construction Project Supervisor",
+      "description": "Supervise construction projects, ensuring that the work on-site aligns with the drawings and specifications, and providing leadership to the construction team.",
+      "studyPath": "Bachelor's or Master's Degree in Construction Management, Civil Engineering, or Project Supervision (4–6 years)."
+    },
+    {
+      "career": "Design Implementation Manager",
+      "description": "Ensure the implementation of complex designs in large-scale construction projects, coordinating between designers, architects, and construction teams, and addressing any discrepancies or issues that arise.",
+      "studyPath": "Bachelor's or Master's Degree in Architectural Design, Civil Engineering, or Construction Management (4–6 years)."
+    }
+  ]
+}
+,
+ "drawing_helping_hands_short": {
+  "title": "Construction Drafting Helper",
+  "desc": "Ideal for students who enjoy drawing, helping others, and assisting with the creation of construction and design documents through hands-on activities.",
+  "careers": [
+    {
+      "career": "Drafting Assistant",
+      "description": "Support professional drafters and architects by helping prepare construction drawings, ensuring accuracy and assisting in the preparation of technical plans.",
+      "studyPath": "Certificate or Diploma in Drafting, CAD Technology, or Architectural Technology (1–2 years)."
+    },
+    {
+      "career": "Construction Site Assistant",
+      "description": "Provide assistance on construction sites by helping with drawing-related tasks, ensuring the construction is proceeding according to the approved plans and making necessary adjustments.",
+      "studyPath": "Certificate or Diploma in Construction, Site Management, or Civil Engineering (1–2 years)."
+    },
+    {
+      "career": "Project Assistant",
+      "description": "Assist project managers and engineers by supporting the team with drawing and documentation tasks, ensuring the project follows the designs and specifications.",
+      "studyPath": "Certificate or Diploma in Project Management, Construction Technology, or Engineering Support (1–2 years)."
+    }
+  ]
+}
+,
+ "drawing_helping_hands_long": {
+  "title": "Advanced Construction Drafting Assistant",
+  "desc": "Ideal for students who enjoy drawing, helping others, and want to take a longer, in-depth course that focuses on assisting with the creation and implementation of detailed construction designs.",
+  "careers": [
+    {
+      "career": "Senior Drafting Assistant",
+      "description": "Assist in creating and reviewing detailed technical drawings and blueprints for large-scale construction projects, ensuring that designs are accurate and meet all regulations.",
+      "studyPath": "Bachelor's Degree in Architecture, Civil Engineering, or Construction Technology (4 years)."
+    },
+    {
+      "career": "Construction Project Coordinator",
+      "description": "Coordinate and assist in the management of construction projects, ensuring that all teams are aligned with the design plans and that the project stays on track.",
+      "studyPath": "Bachelor's Degree in Construction Management, Project Coordination, or Civil Engineering (4 years)."
+    },
+    {
+      "career": "Design Implementation Coordinator",
+      "description": "Oversee the implementation of complex designs on construction sites, ensuring that all design and construction activities align with the approved drawings and specifications.",
+      "studyPath": "Bachelor's Degree in Architecture, Civil Engineering, or Construction Management (4 years)."
+    }
+  ]
+}
+,
+  "drawing_helping_computer_short": {
+  "title": "CAD Design Assistant",
+  "desc": "Ideal for students who enjoy drawing, helping others, and using computers to assist in the creation of construction designs and blueprints for building projects.",
+  "careers": [
+    {
+      "career": "CAD Technician",
+      "description": "Assist in creating technical drawings and blueprints for construction projects using CAD software, ensuring that designs are accurate and meet project requirements.",
+      "studyPath": "Certificate or Diploma in CAD Technology, Engineering Drafting, or Architectural Technology (1–2 years)."
+    },
+    {
+      "career": "3D Modeling Assistant",
+      "description": "Support the creation of 3D models for construction projects, working with design teams to create visual representations of the project before construction begins.",
+      "studyPath": "Certificate or Diploma in 3D Modeling, CAD Technology, or Digital Design (1–2 years)."
+    },
+    {
+      "career": "BIM Assistant",
+      "description": "Assist in the management and development of Building Information Models (BIM) for construction projects, ensuring all project data is integrated into the digital model.",
+      "studyPath": "Certificate or Diploma in BIM Technology, Architecture, or Civil Engineering (1–2 years)."
+    }
+  ]
+}
+,
+  "drawing_helping_computer_long": {
+  "title": "Advanced CAD and BIM Design Assistant",
+  "desc": "Ideal for students who enjoy drawing, helping others, and want a deeper, long-term course focused on advanced computer-aided design (CAD) and Building Information Modeling (BIM) for complex construction projects.",
+  "careers": [
+    {
+      "career": "Senior CAD Designer",
+      "description": "Lead the creation of detailed technical drawings and blueprints for large-scale construction projects, ensuring accuracy and compliance with design specifications.",
+      "studyPath": "Bachelor's Degree in CAD Technology, Architecture, or Engineering Design (4 years)."
+    },
+    {
+      "career": "BIM Specialist",
+      "description": "Oversee the development and management of Building Information Models (BIM), ensuring the integration of all project data, and improving the collaboration between teams throughout the project lifecycle.",
+      "studyPath": "Bachelor's Degree in BIM Technology, Architecture, or Civil Engineering (4 years)."
+    },
+    {
+      "career": "Construction Technology Specialist",
+      "description": "Specialize in using advanced software tools, including CAD and BIM, to assist in the planning, execution, and management of construction projects, ensuring all designs are implemented properly on-site.",
+      "studyPath": "Bachelor's Degree in Construction Technology, Civil Engineering, or Project Management (4 years)."
+    }
+  ]
+}
+,
+  "drawing_helping_talk_short": {
+  "title": "Construction Drafting Communicator",
+  "desc": "Ideal for students who enjoy drawing, helping others, and are skilled in communicating construction concepts with clients, architects, and construction teams.",
+  "careers": [
+    {
+      "career": "Drafting Assistant",
+      "description": "Help in preparing and reviewing technical drawings, while also communicating between the drafting team, clients, and construction workers to ensure clarity and accuracy in the designs.",
+      "studyPath": "Certificate or Diploma in Drafting, CAD Technology, or Communication in Construction (1–2 years)."
+    },
+    {
+      "career": "Client Liaison Officer",
+      "description": "Serve as a communication bridge between clients and construction teams, helping clients understand technical drawings and construction progress.",
+      "studyPath": "Certificate or Diploma in Construction Management, Communication, or Client Relations (1–2 years)."
+    },
+    {
+      "career": "Project Assistant",
+      "description": "Assist in relaying information between architects, contractors, and clients, ensuring that design concepts are communicated clearly and understood by all involved parties.",
+      "studyPath": "Certificate or Diploma in Project Management, Architecture, or Communication (1–2 years)."
+    }
+  ]
+}
+,
+  "drawing_helping_talk_long": {
+  "title": "Advanced Construction Communication and Drafting Specialist",
+  "desc": "Ideal for students who enjoy drawing, helping others, and possess strong communication skills to facilitate complex construction projects, ensuring the clarity of designs and progress among all stakeholders.",
+  "careers": [
+    {
+      "career": "Construction Project Manager",
+      "description": "Manage construction projects from start to finish, ensuring smooth communication between clients, architects, engineers, and construction teams, while overseeing the implementation of detailed drafts and designs.",
+      "studyPath": "Bachelor's or Master's Degree in Construction Management, Project Management, or Civil Engineering (4–6 years)."
+    },
+    {
+      "career": "Architectural Design Coordinator",
+      "description": "Coordinate between architects, designers, and construction teams, ensuring that designs are clearly understood and accurately implemented throughout the construction process.",
+      "studyPath": "Bachelor's or Master's Degree in Architecture, Construction Design, or Design Management (4–6 years)."
+    },
+    {
+      "career": "Construction Communication Specialist",
+      "description": "Specialize in communicating construction designs and plans between all stakeholders, ensuring that everyone involved understands the project details and any changes made during the building process.",
+      "studyPath": "Bachelor's or Master's Degree in Communication, Construction Management, or Project Coordination (4–6 years)."
+    }
+  ]
+}
+,
+  "drawing_helping_observe_short": {
+  "title": "Construction Observation Assistant",
+  "desc": "Ideal for students who enjoy drawing, helping others, and observing construction activities to ensure that plans and designs are accurately implemented on-site.",
+  "careers": [
+    {
+      "career": "Site Observation Assistant",
+      "description": "Assist in observing ongoing construction projects, ensuring the designs and blueprints are being followed properly, and providing feedback to the project managers.",
+      "studyPath": "Certificate or Diploma in Construction, Civil Engineering, or Architectural Technology (1–2 years)."
+    },
+    {
+      "career": "Drafting Assistant",
+      "description": "Help the drafting team by reviewing technical drawings and ensuring that construction activities align with the plans and specifications provided.",
+      "studyPath": "Certificate or Diploma in Drafting, CAD Technology, or Construction Design (1–2 years)."
+    },
+    {
+      "career": "Project Assistant",
+      "description": "Support project managers in observing construction processes and ensuring that they follow the approved drawings, specifications, and timelines.",
+      "studyPath": "Certificate or Diploma in Project Management, Construction Technology, or Civil Engineering (1–2 years)."
+    }
+  ]
+}
+,
+  "drawing_helping_observe_long": {
+  "title": "Advanced Construction Observation Specialist",
+  "desc": "Ideal for students who enjoy drawing, helping others, and observing construction projects in-depth to ensure designs are implemented correctly, focusing on long-term involvement in large-scale construction projects.",
+  "careers": [
+    {
+      "career": "Construction Site Supervisor",
+      "description": "Oversee construction projects, ensuring that all design specifications and plans are being followed accurately on-site, and managing the communication between the project team and stakeholders.",
+      "studyPath": "Bachelor's Degree in Construction Management, Civil Engineering, or Architecture (4 years)."
+    },
+    {
+      "career": "Senior Drafting Technician",
+      "description": "Lead the preparation and review of detailed construction drawings and blueprints, ensuring that the design plans are faithfully executed on-site and any necessary adjustments are made.",
+      "studyPath": "Bachelor's Degree in Drafting, Architecture, or Civil Engineering (4 years)."
+    },
+    {
+      "career": "Project Design Implementation Coordinator",
+      "description": "Coordinate the design and construction teams, ensuring that the designs are accurately followed and that the project adheres to the expected timelines, budgets, and quality standards.",
+      "studyPath": "Bachelor's or Master's Degree in Project Management, Construction Technology, or Engineering Design (4–6 years)."
+    }
+  ]
+}
+,
+  "drawing_creating_hands_short": {
+  "title": "Construction Drawing Creator",
+  "desc": "Ideal for students who enjoy hands-on drawing, creating designs, and contributing to the development of construction plans, focusing on practical creation and visualization of construction projects.",
+  "careers": [
+    {
+      "career": "Drafting Technician",
+      "description": "Create technical drawings, blueprints, and design plans for construction projects, translating the ideas of architects and engineers into visual representations.",
+      "studyPath": "Certificate or Diploma in Drafting, CAD Technology, or Architectural Technology (1–2 years)."
+    },
+    {
+      "career": "Design Draftsperson",
+      "description": "Develop detailed drawings and technical specifications for various construction projects, ensuring that the designs meet all necessary standards and guidelines.",
+      "studyPath": "Certificate or Diploma in Design Drafting, Construction Technology, or Engineering (1–2 years)."
+    },
+    {
+      "career": "Construction Modeler",
+      "description": "Create 3D models and technical drawings for construction projects, helping architects and engineers visualize the final product before building begins.",
+      "studyPath": "Certificate or Diploma in 3D Modeling, CAD Technology, or Design (1–2 years)."
+    }
+  ]
+}
+,
+  "drawing_creating_hands_long": {
+  "title": "Advanced Construction Drawing Creator",
+  "desc": "Ideal for students who are passionate about hands-on design and want to develop advanced skills in creating detailed construction plans, models, and designs for large-scale projects.",
+  "careers": [
+    {
+      "career": "Senior Drafting Technician",
+      "description": "Lead the creation and review of complex technical drawings, blueprints, and 3D models for large construction projects, ensuring high precision and compliance with industry standards.",
+      "studyPath": "Bachelor's Degree in Architecture, Civil Engineering, or Design Technology (4 years)."
+    },
+    {
+      "career": "Architectural Designer",
+      "description": "Work closely with architects and engineers to design and create detailed construction drawings, ensuring the designs are feasible, functional, and aesthetically pleasing.",
+      "studyPath": "Bachelor's Degree in Architecture or Interior Design (4–5 years)."
+    },
+    {
+      "career": "Construction Technology Specialist",
+      "description": "Specialize in the creation of detailed construction drawings and models, using advanced software and techniques to visualize the design and ensure that it is accurately followed on-site.",
+      "studyPath": "Bachelor's Degree in Construction Technology, Civil Engineering, or Design (4 years)."
+    }
+  ]
+}
+,
+  "drawing_creating_computer_short": {
+  "title": "CAD and Design Assistant",
+  "desc": "Ideal for students who enjoy creating designs using computers and want to develop skills in CAD (Computer-Aided Design) to assist in the creation of construction drawings and blueprints.",
+  "careers": [
+    {
+      "career": "CAD Technician",
+      "description": "Assist in creating detailed construction drawings using CAD software, ensuring accuracy and adherence to specifications for various building projects.",
+      "studyPath": "Certificate or Diploma in CAD Technology, Architectural Technology, or Engineering Design (1–2 years)."
+    },
+    {
+      "career": "3D Modeler",
+      "description": "Help develop 3D models for construction projects, translating 2D design concepts into 3D visualizations for better project planning and implementation.",
+      "studyPath": "Certificate or Diploma in 3D Modeling, CAD Technology, or Digital Design (1–2 years)."
+    },
+    {
+      "career": "Drafting Assistant",
+      "description": "Assist in the preparation of detailed technical drawings and blueprints for construction projects using CAD software, supporting design and engineering teams.",
+      "studyPath": "Certificate or Diploma in Drafting, CAD Technology, or Construction Design (1–2 years)."
+    }
+  ]
+}
+,
+  "drawing_creating_computer_long": {
+  "title": "Advanced CAD and Design Specialist",
+  "desc": "Ideal for students who are passionate about using computer software for advanced design work and want to specialize in CAD, 3D modeling, and other design technologies for large-scale construction projects.",
+  "careers": [
+    {
+      "career": "Senior CAD Designer",
+      "description": "Lead the creation and review of detailed construction drawings and blueprints using advanced CAD software, ensuring the highest level of precision for complex projects.",
+      "studyPath": "Bachelor's Degree in CAD Technology, Architectural Design, or Engineering Design (4 years)."
+    },
+    {
+      "career": "BIM Specialist",
+      "description": "Manage the creation and implementation of Building Information Models (BIM) for construction projects, ensuring that all designs, data, and project specifications are integrated into a digital model.",
+      "studyPath": "Bachelor's or Master's Degree in BIM Technology, Architecture, or Civil Engineering (4–6 years)."
+    },
+    {
+      "career": "Construction Technology Specialist",
+      "description": "Use advanced computer-aided design software to help plan, design, and manage construction projects, ensuring that all designs are implemented effectively on-site.",
+      "studyPath": "Bachelor's Degree in Construction Technology, Civil Engineering, or Architectural Technology (4 years)."
+    }
+  ]
+}
+,
+  "drawing_creating_talk_short": {
+  "title": "Construction Design Communicator",
+  "desc": "Ideal for students who enjoy creating designs and communicating them effectively to both technical teams and clients, focusing on translating complex construction drawings into understandable terms.",
+  "careers": [
+    {
+      "career": "Design Communication Assistant",
+      "description": "Assist in the communication of design concepts between architects, engineers, and construction teams, helping translate technical drawings into actionable project details.",
+      "studyPath": "Certificate or Diploma in Communication, Construction Design, or Architecture (1–2 years)."
+    },
+    {
+      "career": "Client Liaison in Design",
+      "description": "Serve as the point of contact between clients and design teams, ensuring that design concepts are clearly explained and understood by clients, while also relaying feedback.",
+      "studyPath": "Certificate or Diploma in Client Relations, Communication, or Construction Management (1–2 years)."
+    },
+    {
+      "career": "Project Assistant",
+      "description": "Assist in coordinating communication between the design team and the client, ensuring that all design details are conveyed and that the project stays on track.",
+      "studyPath": "Certificate or Diploma in Project Management, Construction Design, or Communication (1–2 years)."
+    }
+  ]
+}
+,
+"drawing_creating_talk_long": {
+  "title": "Advanced Construction Design Communicator",
+  "desc": "Ideal for students who enjoy creating detailed designs and communicating them effectively to a wide range of stakeholders, including clients, architects, engineers, and construction teams, ensuring clarity and understanding in all phases of the project.",
+  "careers": [
+    {
+      "career": "Construction Project Coordinator",
+      "description": "Oversee communication between clients, designers, and construction teams, ensuring that design concepts are well-understood and properly implemented throughout the construction process.",
+      "studyPath": "Bachelor's Degree in Construction Management, Architecture, or Project Coordination (4 years)."
+    },
+    {
+      "career": "Design Liaison Officer",
+      "description": "Facilitate communication between design teams and construction teams, ensuring that all project designs are clearly explained and that feedback is accurately communicated to all stakeholders.",
+      "studyPath": "Bachelor's Degree in Communication, Design, or Architecture (4 years)."
+    },
+    {
+      "career": "Senior Design Consultant",
+      "description": "Provide expert advice on design strategies, ensuring that designs meet client expectations, construction feasibility, and aesthetic requirements, while also communicating these to the broader project team.",
+      "studyPath": "Bachelor's or Master's Degree in Architecture, Design, or Civil Engineering (4–6 years)."
+    }
+  ]
+}
+,
+  "drawing_creating_observe_short": {
+  "title": "Construction Drawing Observer",
+  "desc": "Ideal for students who enjoy creating drawings and observing how designs are implemented on construction sites, ensuring that all plans and specifications are adhered to.",
+  "careers": [
+    {
+      "career": "Site Observation Assistant",
+      "description": "Observe ongoing construction projects to ensure that drawings and plans are being followed accurately, providing feedback and support to the project management team.",
+      "studyPath": "Certificate or Diploma in Construction, Drafting, or Architecture (1–2 years)."
+    },
+    {
+      "career": "Drafting Assistant",
+      "description": "Assist in reviewing technical drawings and ensuring that construction activities align with the designs, providing support to architects and engineers on-site.",
+      "studyPath": "Certificate or Diploma in Drafting, Civil Engineering, or Architectural Technology (1–2 years)."
+    },
+    {
+      "career": "Construction Survey Assistant",
+      "description": "Assist with on-site surveys to gather data, ensuring that the designs match the actual construction site and that measurements are accurately recorded.",
+      "studyPath": "Certificate or Diploma in Surveying, Construction Technology, or Civil Engineering (1–2 years)."
+    }
+  ]
+}
+,
+ "drawing_creating_observe_long": {
+  "title": "Advanced Construction Drawing Observer",
+  "desc": "Ideal for students who want to take an in-depth role in observing large-scale construction projects and ensuring that design plans are followed to the finest detail, with a focus on high-level project management and quality control.",
+  "careers": [
+    {
+      "career": "Construction Quality Control Supervisor",
+      "description": "Oversee the implementation of construction plans and designs, ensuring all work adheres to the highest quality standards and complies with safety regulations and design specifications.",
+      "studyPath": "Bachelor's Degree in Construction Management, Civil Engineering, or Architecture (4 years)."
+    },
+    {
+      "career": "Senior Design Review Coordinator",
+      "description": "Lead the process of reviewing and verifying construction designs, ensuring that all plans are being implemented as intended and managing any necessary adjustments or revisions.",
+      "studyPath": "Bachelor's or Master's Degree in Architecture, Civil Engineering, or Project Management (4–6 years)."
+    },
+    {
+      "career": "Construction Project Manager",
+      "description": "Manage large-scale construction projects, ensuring that design plans are strictly followed, and collaborating with architects, engineers, and construction teams to achieve project goals on time and within budget.",
+      "studyPath": "Bachelor's or Master's Degree in Construction Management, Civil Engineering, or Architecture (4–6 years)."
+    }
+  ]
+}
+,
+  "drawing_managing_hands_short": {
+  "title": "Construction Drawing Manager",
+  "desc": "Ideal for students who enjoy creating drawings and managing the organization of construction plans, focusing on coordinating teams and overseeing the creation and modification of technical drawings.",
+  "careers": [
+    {
+      "career": "Drawing Coordinator",
+      "description": "Manage the preparation and review of construction drawings, ensuring that all design documents are accurate, up-to-date, and aligned with the project requirements.",
+      "studyPath": "Certificate or Diploma in Project Management, Drafting, or Construction Technology (1–2 years)."
+    },
+    {
+      "career": "Construction Drawing Supervisor",
+      "description": "Supervise a team of drafters and designers, ensuring that technical drawings and construction plans are completed according to project timelines and meet quality standards.",
+      "studyPath": "Diploma or Bachelor's Degree in Drafting, Construction Technology, or Project Management (2–4 years)."
+    },
+    {
+      "career": "Design Team Manager",
+      "description": "Oversee the work of design and drafting teams, ensuring that construction plans are developed efficiently and meet both aesthetic and functional requirements.",
+      "studyPath": "Bachelor's Degree in Construction Management, Design, or Architecture (4 years)."
+    }
+  ]
+}
+,
+  "drawing_managing_hands_long": {
+  "title": "Advanced Construction Drawing Manager",
+  "desc": "Ideal for students who want to take on a leadership role in managing the creation and implementation of detailed construction drawings, overseeing large teams, and ensuring projects are executed to the highest standards.",
+  "careers": [
+    {
+      "career": "Senior Drawing Manager",
+      "description": "Lead and manage the entire team responsible for creating, reviewing, and modifying construction drawings, ensuring all documents are accurate, compliant with regulations, and delivered on time.",
+      "studyPath": "Bachelor's or Master's Degree in Construction Management, Architecture, or Civil Engineering (4–6 years)."
+    },
+    {
+      "career": "Design Project Manager",
+      "description": "Manage multiple design and drafting teams on large-scale construction projects, overseeing the creation of drawings, coordinating with architects, engineers, and contractors, and ensuring that all designs are implemented correctly.",
+      "studyPath": "Bachelor's Degree in Project Management, Civil Engineering, or Architecture (4 years)."
+    },
+    {
+      "career": "Construction Director",
+      "description": "Direct the overall design and construction phases of projects, ensuring that all architectural and engineering designs are fully realized on-site, managing teams, budgets, and timelines.",
+      "studyPath": "Master's Degree in Construction Management, Civil Engineering, or Architecture (5–6 years)."
+    }
+  ]
+}
+,
+  "drawing_managing_computer_short": {
+  "title": "Computer-Aided Design (CAD) Manager",
+  "desc": "Ideal for students who enjoy managing computer-based design processes and want to oversee the creation of technical drawings and blueprints using CAD software in a construction environment.",
+  "careers": [
+    {
+      "career": "CAD Manager",
+      "description": "Oversee the use of CAD software within the organization, ensuring that all digital construction drawings are created, stored, and modified according to project specifications and standards.",
+      "studyPath": "Diploma or Bachelor's Degree in CAD Technology, Architecture, or Civil Engineering (2–4 years)."
+    },
+    {
+      "career": "BIM Manager",
+      "description": "Manage the implementation of Building Information Modeling (BIM) software and systems, coordinating digital models and construction data across various departments in large-scale construction projects.",
+      "studyPath": "Bachelor's or Master's Degree in BIM Technology, Architecture, or Civil Engineering (4–6 years)."
+    },
+    {
+      "career": "Design Technology Manager",
+      "description": "Supervise the design technology team, ensuring the efficient use of software tools to create detailed drawings and models for construction projects while coordinating with other departments.",
+      "studyPath": "Bachelor's Degree in Design Technology, CAD, or Civil Engineering (4 years)."
+    }
+  ]
+}
+,
+  "drawing_managing_computer_long": {
+  "title": "Advanced CAD and BIM Manager",
+  "desc": "Ideal for students who want to take on a leadership role in managing and overseeing the entire process of creating and implementing advanced construction designs using CAD and BIM software, ensuring integration across all project teams.",
+  "careers": [
+    {
+      "career": "Lead CAD and BIM Manager",
+      "description": "Manage the use and integration of CAD and BIM software across multiple construction projects, ensuring the digital models and design documents meet the highest standards and support project delivery.",
+      "studyPath": "Bachelor's or Master's Degree in BIM Technology, Architecture, or Civil Engineering (4–6 years)."
+    },
+    {
+      "career": "Construction Digitalization Director",
+      "description": "Direct the digital transformation of construction projects, overseeing the adoption and implementation of advanced CAD and BIM technologies across the organization, and ensuring smooth integration with other project management tools.",
+      "studyPath": "Master's Degree in Construction Management, Architecture, or Civil Engineering with a focus on Digital Technologies (5–6 years)."
+    },
+    {
+      "career": "Senior Project Manager (Digital Design)",
+      "description": "Lead the project management of large-scale construction projects, with a focus on using CAD, BIM, and other digital tools to ensure that all designs are accurately implemented and construction is executed according to plan.",
+      "studyPath": "Master's Degree in Project Management, Civil Engineering, or Architecture with a specialization in Digital Design (5–6 years)."
+    }
+  ]
+}
+,
+  "drawing_managing_talk_short": {
+  "title": "Construction Drawing Communicator",
+  "desc": "Ideal for students who excel in communication and want to manage the flow of information between design teams, clients, and contractors, ensuring that construction drawings and designs are clearly understood by all stakeholders.",
+  "careers": [
+    {
+      "career": "Design Communication Coordinator",
+      "description": "Coordinate the exchange of information between design teams, contractors, and clients, ensuring that construction drawings and designs are clearly communicated and any changes are well-documented.",
+      "studyPath": "Certificate or Diploma in Communication, Construction Management, or Drafting (1–2 years)."
+    },
+    {
+      "career": "Client Relations Manager (Design)",
+      "description": "Serve as the primary point of contact for clients, translating complex construction drawings and design ideas into easily understandable terms, and ensuring client feedback is relayed to design teams.",
+      "studyPath": "Diploma or Bachelor's Degree in Client Relations, Construction Management, or Design (2–4 years)."
+    },
+    {
+      "career": "Design Review Facilitator",
+      "description": "Facilitate design reviews, ensuring that all team members understand the construction drawings and that any feedback from clients or contractors is accurately communicated to the design team.",
+      "studyPath": "Diploma or Bachelor's Degree in Design, Architecture, or Communication (2–4 years)."
+    }
+  ]
+}
+,
+  "drawing_managing_talk_long": {
+  "title": "Advanced Construction Drawing Communicator",
+  "desc": "Ideal for students who want to lead the communication efforts in large-scale construction projects, ensuring the seamless exchange of information between all parties involved, including clients, contractors, and design teams, for successful project execution.",
+  "careers": [
+    {
+      "career": "Senior Design Communication Manager",
+      "description": "Oversee and manage the flow of information between all stakeholders on construction projects, ensuring that complex design concepts are clearly communicated and that feedback is properly conveyed to the design teams.",
+      "studyPath": "Bachelor's or Master's Degree in Project Management, Construction Communication, or Architecture (4–6 years)."
+    },
+    {
+      "career": "Construction Liaison Officer",
+      "description": "Serve as the bridge between contractors, architects, and clients, ensuring that all construction design communications are clear, accurate, and timely, and helping to resolve any misunderstandings during the project.",
+      "studyPath": "Bachelor's Degree in Construction Management, Communication, or Civil Engineering (4 years)."
+    },
+    {
+      "career": "Project Coordination Director (Design and Communication)",
+      "description": "Direct the coordination of design and communication processes across multiple construction projects, ensuring that all teams are aligned and that design adjustments are communicated effectively.",
+      "studyPath": "Master's Degree in Construction Management, Project Coordination, or Communication (5–6 years)."
+    }
+  ]
+}
+,
+  "drawing_managing_observe_short": {
+  "title": "Construction Drawing Observer",
+  "desc": "Ideal for students who enjoy managing and observing how construction plans are implemented on-site, ensuring that the work follows the design specifications and maintaining quality control over the construction process.",
+  "careers": [
+    {
+      "career": "On-Site Drawing Inspector",
+      "description": "Observe and ensure that construction activities align with the approved drawings, checking for compliance with architectural and engineering standards and identifying discrepancies or issues.",
+      "studyPath": "Certificate or Diploma in Construction Technology, Drafting, or Civil Engineering (1–2 years)."
+    },
+    {
+      "career": "Quality Control Supervisor",
+      "description": "Supervise and observe the construction process to ensure that it adheres to the technical drawings, confirming that the final product matches the original design intent and complies with building codes.",
+      "studyPath": "Diploma or Bachelor's Degree in Quality Control, Construction Management, or Civil Engineering (2–4 years)."
+    },
+    {
+      "career": "Construction Site Supervisor",
+      "description": "Manage day-to-day construction activities, ensuring that work aligns with design specifications and quality standards, and resolving issues related to the construction drawings and on-site work.",
+      "studyPath": "Diploma or Bachelor's Degree in Construction Management or Civil Engineering (2–4 years)."
+    }
+  ]
+}
+,
+  "drawing_managing_observe_long": {
+  "title": "Advanced Construction Drawing Observer",
+  "desc": "Ideal for students who aspire to lead the quality assurance and oversight process of construction projects, ensuring that designs are executed as planned while managing teams and ensuring compliance with all specifications.",
+  "careers": [
+    {
+      "career": "Senior Construction Quality Control Manager",
+      "description": "Lead and oversee the quality control efforts across multiple construction projects, ensuring that the work adheres to detailed design drawings and meets the highest standards of safety, quality, and efficiency.",
+      "studyPath": "Bachelor's or Master's Degree in Construction Management, Civil Engineering, or Architecture (4–6 years)."
+    },
+    {
+      "career": "Construction Compliance Director",
+      "description": "Direct the compliance monitoring for large-scale construction projects, ensuring that all construction activities align with regulatory standards, design specifications, and client requirements.",
+      "studyPath": "Master's Degree in Construction Management, Civil Engineering, or Architecture with a focus on Compliance and Quality Control (5–6 years)."
+    },
+    {
+      "career": "Project Quality Assurance Director",
+      "description": "Manage the overall quality assurance processes for construction projects, ensuring that the construction work aligns with the approved plans, and overseeing the inspection, reporting, and corrective actions as necessary.",
+      "studyPath": "Master's Degree in Construction Management, Civil Engineering, or Quality Assurance (5–6 years)."
+    }
+  ]
+}
+,
+  "talking_building_hands_short": {
+  "title": "Construction Communication Specialist",
+  "desc": "Ideal for students who enjoy talking through the details of construction projects, working hands-on with builders, architects, and engineers to ensure clear communication on-site.",
+  "careers": [
+    {
+      "career": "Site Communication Officer",
+      "description": "Ensure smooth communication between contractors, engineers, and clients on-site, providing real-time updates and clarifying project details to all team members.",
+      "studyPath": "Certificate or Diploma in Communication, Construction Management, or Project Coordination (1–2 years)."
+    },
+    {
+      "career": "Field Liaison Coordinator",
+      "description": "Act as the bridge between the construction team and clients, discussing project progress, answering questions, and providing explanations of the plans to stakeholders.",
+      "studyPath": "Diploma or Bachelor's Degree in Communication, Project Management, or Construction (2–4 years)."
+    },
+    {
+      "career": "Construction Project Spokesperson",
+      "description": "Serve as the main point of contact for any public or media inquiries about the construction project, while also coordinating between different on-site teams and ensuring everyone is on the same page.",
+      "studyPath": "Bachelor's Degree in Public Relations, Construction Management, or Communication (3–4 years)."
+    }
+  ]
+}
+,
+ "talking_building_hands_long": {
+  "title": "Advanced Construction Communication Specialist",
+  "desc": "Ideal for students who want to take on leadership roles in facilitating communication on large-scale construction projects, managing teams, and ensuring seamless interaction between all stakeholders on-site and off-site.",
+  "careers": [
+    {
+      "career": "Senior Construction Communication Manager",
+      "description": "Lead communication efforts for large-scale construction projects, ensuring all teams and stakeholders are aligned, resolving issues in real-time, and facilitating effective dialogue between contractors, clients, and project managers.",
+      "studyPath": "Bachelor's or Master's Degree in Construction Management, Communication, or Public Relations (4–6 years)."
+    },
+    {
+      "career": "Construction Public Relations Manager",
+      "description": "Manage external communication for construction projects, handling media inquiries, public relations strategies, and ensuring a positive image of the company is maintained throughout the duration of the project.",
+      "studyPath": "Bachelor's Degree in Public Relations, Communication, or Construction Management (4 years)."
+    },
+    {
+      "career": "Project Communications Director",
+      "description": "Oversee the communication strategy for large construction projects, ensuring all parties involved are properly informed and managing internal communications between various teams to ensure alignment and efficiency.",
+      "studyPath": "Master's Degree in Project Management, Construction Management, or Communication (5–6 years)."
+    }
+  ]
+}
+,
+  "talking_building_computer_short": {
+  "title": "Construction Technology Communicator",
+  "desc": "Ideal for students who are interested in combining communication skills with the use of construction software and digital tools to facilitate better project management and ensure clear communication between teams using technology.",
+  "careers": [
+    {
+      "career": "BIM Communication Specialist",
+      "description": "Serve as the primary point of contact for teams working with Building Information Modeling (BIM) tools, ensuring that digital models are interpreted and communicated clearly among project teams.",
+      "studyPath": "Diploma or Certificate in BIM, Construction Management, or Architecture (1–2 years)."
+    },
+    {
+      "career": "Project Management Software Coordinator",
+      "description": "Assist in coordinating the use of construction project management software, ensuring all stakeholders are trained and able to use the software effectively for project tracking and communication.",
+      "studyPath": "Certificate or Diploma in Project Management, Construction Technology, or Information Systems (1–2 years)."
+    },
+    {
+      "career": "Construction Technology Liaison",
+      "description": "Facilitate communication between design teams, construction teams, and clients through the use of digital tools and software, ensuring that everyone is aligned with the technical aspects of the project.",
+      "studyPath": "Diploma or Bachelor's Degree in Construction Management, Architecture, or Digital Technologies (2–4 years)."
+    }
+  ]
+}
+,
+  "talking_building_computer_long": {
+  "title": "Advanced Construction Technology Communicator",
+  "desc": "Ideal for students aiming to lead communication efforts in large-scale construction projects, focusing on the integration of advanced technology and software solutions to streamline communication and project management across multiple teams.",
+  "careers": [
+    {
+      "career": "Senior BIM Coordinator",
+      "description": "Lead the implementation and communication of Building Information Modeling (BIM) across multiple teams, ensuring seamless integration and effective communication of project models and plans to stakeholders.",
+      "studyPath": "Bachelor's or Master's Degree in Architecture, Construction Management, or Information Technology with a focus on BIM (4–6 years)."
+    },
+    {
+      "career": "Construction Technology Systems Manager",
+      "description": "Oversee the deployment and management of digital tools and construction technology systems, ensuring all project teams are properly equipped and trained to use advanced software for project tracking and communication.",
+      "studyPath": "Master's Degree in Construction Management, Project Management, or Digital Construction Technologies (5–6 years)."
+    },
+    {
+      "career": "Project Digital Communications Director",
+      "description": "Manage the overall digital communication strategy for large-scale construction projects, ensuring that all stakeholders are informed through digital tools and systems, improving efficiency and decision-making.",
+      "studyPath": "Master's Degree in Construction Management, Digital Communication, or Project Management (5–6 years)."
+    }
+  ]
+}
+,
+  "talking_building_talk_short": {
+  "title": "Construction Communication Facilitator",
+  "desc": "Ideal for students who are interested in leading communication efforts on construction projects, helping to ensure that all parties involved – from contractors to clients – understand the project's progress and key details.",
+  "careers": [
+    {
+      "career": "Site Communication Facilitator",
+      "description": "Manage communication between the construction team and clients, ensuring that progress reports, design changes, and any issues are communicated clearly and in a timely manner.",
+      "studyPath": "Certificate or Diploma in Communication, Construction Management, or Project Coordination (1–2 years)."
+    },
+    {
+      "career": "Construction Project Spokesperson",
+      "description": "Serve as the main contact for all communications related to a construction project, handling updates, concerns, and client inquiries to ensure smooth communication and problem resolution.",
+      "studyPath": "Diploma or Bachelor's Degree in Communication, Public Relations, or Construction Management (2–4 years)."
+    },
+    {
+      "career": "Client Liaison Manager",
+      "description": "Ensure that all client requests and feedback are communicated clearly to the construction team, and provide regular updates to the client about the project's progress and any changes.",
+      "studyPath": "Bachelor's Degree in Construction Management, Communication, or Project Management (3–4 years)."
+    }
+  ]
+}
+,
+  "talking_building_talk_long": {
+  "title": "Advanced Construction Communication Leader",
+  "desc": "Ideal for students who want to lead and manage communication strategies on large-scale construction projects, coordinating across multiple teams, clients, and stakeholders while ensuring clear and effective communication at all levels.",
+  "careers": [
+    {
+      "career": "Construction Communication Director",
+      "description": "Oversee all communication efforts for large construction projects, ensuring effective internal and external communication, managing teams, and providing clear and consistent updates to clients, stakeholders, and contractors.",
+      "studyPath": "Bachelor's or Master's Degree in Construction Management, Public Relations, or Communication (4–6 years)."
+    },
+    {
+      "career": "Construction Public Relations Strategist",
+      "description": "Develop and manage the public relations strategy for large construction projects, ensuring positive media coverage, handling crisis communication, and maintaining a strong public image of the company and its projects.",
+      "studyPath": "Master's Degree in Public Relations, Construction Management, or Strategic Communication (5–6 years)."
+    },
+    {
+      "career": "Project Communication and Stakeholder Manager",
+      "description": "Lead the communication strategy for major construction projects, managing relationships with stakeholders, handling client queries, and ensuring that project teams remain aligned with client expectations and project goals.",
+      "studyPath": "Master's Degree in Construction Management, Communication, or Stakeholder Engagement (5–6 years)."
+    }
+  ]
+}
+,
+  "talking_building_observe_short": {
+  "title": "Construction Communication Observer",
+  "desc": "Ideal for students who enjoy observing and ensuring clear communication on construction sites, helping track and report key details through discussions with construction teams and stakeholders.",
+  "careers": [
+    {
+      "career": "Construction Site Observer",
+      "description": "Monitor communication on-site to ensure that all construction activities are being carried out according to the plan, communicating any discrepancies or issues to the team or client.",
+      "studyPath": "Certificate or Diploma in Construction Management, Communication, or Project Coordination (1–2 years)."
+    },
+    {
+      "career": "Project Communication Monitor",
+      "description": "Observe communication flows between construction teams, clients, and other stakeholders, ensuring that key messages are being effectively conveyed and that there is clarity in project progress updates.",
+      "studyPath": "Diploma in Communication, Construction Management, or Project Management (2–3 years)."
+    },
+    {
+      "career": "Construction Progress Liaison",
+      "description": "Observe and report on the communication of project progress, documenting key milestones and ensuring that all parties involved are kept up-to-date with developments.",
+      "studyPath": "Diploma or Bachelor's Degree in Construction Management or Communication (2–4 years)."
+    }
+  ]
+}
+,
+  "talking_building_observe_long": {
+  "title": "Advanced Construction Communication Observer",
+  "desc": "Ideal for students who want to take on senior roles in overseeing and ensuring effective communication on large-scale construction projects, with a focus on monitoring communication between multiple teams, clients, and stakeholders.",
+  "careers": [
+    {
+      "career": "Senior Construction Communication Analyst",
+      "description": "Lead the observation of communication channels across construction projects, ensuring that all information flows smoothly between contractors, clients, and stakeholders, and identifying areas for improvement.",
+      "studyPath": "Bachelor's or Master's Degree in Construction Management, Communication, or Organizational Leadership (4–6 years)."
+    },
+    {
+      "career": "Project Communication Quality Controller",
+      "description": "Oversee the quality of communication during construction projects, ensuring that all parties are kept well-informed, and identifying any gaps or miscommunications in the project's reporting and updates.",
+      "studyPath": "Master's Degree in Project Management, Communication, or Construction Management (5–6 years)."
+    },
+    {
+      "career": "Construction Stakeholder Engagement Manager",
+      "description": "Monitor and manage the engagement of key stakeholders in construction projects, ensuring that communication with clients, subcontractors, and external parties is effective and aligned with project goals.",
+      "studyPath": "Master's Degree in Stakeholder Engagement, Communication, or Construction Management (5–6 years)."
+    }
+  ]
+}
+,
+  "talking_helping_hands_short": {
+  "title": "Assisting Communication Specialist",
+  "desc": "Ideal for students who enjoy helping others communicate effectively, supporting individuals in need, and providing assistance in relaying messages clearly in various environments, especially in support or caregiving roles.",
+  "careers": [
+    {
+      "career": "Customer Service Representative",
+      "description": "Assist customers by answering inquiries, providing information, and addressing concerns to ensure a smooth experience, acting as a liaison between the company and its customers.",
+      "studyPath": "Certificate or Diploma in Customer Service, Communication, or Hospitality (1–2 years)."
+    },
+    {
+      "career": "Community Outreach Coordinator",
+      "description": "Support communication efforts in community programs, providing information to the public and assisting with outreach efforts to ensure people understand services or initiatives available to them.",
+      "studyPath": "Diploma in Community Services, Social Work, or Public Relations (2 years)."
+    },
+    {
+      "career": "Medical Office Assistant",
+      "description": "Provide administrative and communication support in healthcare settings, assisting with patient communication, scheduling, and ensuring clear information is exchanged between patients and medical professionals.",
+      "studyPath": "Certificate or Diploma in Medical Office Administration, Healthcare, or Communication (1–2 years)."
+    }
+  ]
+}
+,
+  "talking_helping_hands_long": {
+  "title": "Advanced Communication Assistance Specialist",
+  "desc": "Ideal for students who want to specialize in helping individuals with communication challenges, working in healthcare, education, or community settings to assist those in need of clear, effective communication and emotional support.",
+  "careers": [
+    {
+      "career": "Speech-Language Pathologist",
+      "description": "Work with individuals who have speech, language, or communication difficulties, helping them improve their abilities through therapy, support, and tailored communication techniques.",
+      "studyPath": "Master's Degree in Speech-Language Pathology (6–7 years)."
+    },
+    {
+      "career": "Clinical Communication Specialist",
+      "description": "Assist healthcare professionals in communicating with patients, ensuring patients understand medical information, and helping those with communication disorders articulate their needs and concerns.",
+      "studyPath": "Master's Degree in Clinical Communication, Healthcare Administration, or Social Work (5–6 years)."
+    },
+    {
+      "career": "Special Education Communication Assistant",
+      "description": "Provide support to special education teachers and students, ensuring effective communication between students, teachers, and parents, and helping students with learning disabilities express themselves.",
+      "studyPath": "Bachelor's or Master's Degree in Special Education, Communication, or Speech Pathology (4–6 years)."
+    }
+  ]
+}
+,
+  "talking_helping_computer_short": {
+  "title": "Technology Support Communication Specialist",
+  "desc": "Ideal for students who enjoy using technology to assist with communication, helping others with digital tools, troubleshooting, and providing technical support in various settings.",
+  "careers": [
+    {
+      "career": "IT Support Specialist",
+      "description": "Provide technical support and assist with troubleshooting for end users, ensuring that communication tools and technologies are functioning properly for both individuals and teams.",
+      "studyPath": "Certificate or Diploma in Information Technology, Computer Support, or Technical Assistance (1–2 years)."
+    },
+    {
+      "career": "Help Desk Technician",
+      "description": "Offer customer support for software, hardware, and technical systems, helping individuals or organizations with any technical communication issues they may face.",
+      "studyPath": "Certificate or Diploma in IT Support or Technical Assistance (1–2 years)."
+    },
+    {
+      "career": "Customer Support Technology Representative",
+      "description": "Support customers by helping them use software, apps, and digital tools, guiding them through any technical issues and ensuring they can effectively communicate through technology.",
+      "studyPath": "Certificate or Diploma in Customer Service, Technology, or IT Support (1–2 years)."
+    }
+  ]
+}
+,
+  "talking_helping_computer_long": {
+  "title": "Advanced Technology Support and Communication Specialist",
+  "desc": "Ideal for students who want to take on senior roles in providing specialized technical support and training, working to ensure seamless communication through technology in complex environments like enterprises, healthcare, or educational institutions.",
+  "careers": [
+    {
+      "career": "Senior IT Support Manager",
+      "description": "Lead and manage teams of IT support specialists, ensuring effective communication across departments and providing solutions to complex technical issues affecting communication systems.",
+      "studyPath": "Bachelor's or Master's Degree in Information Technology, Systems Management, or Technical Support (4–6 years)."
+    },
+    {
+      "career": "Technology Integration Specialist",
+      "description": "Assist organizations in integrating new technologies into their communication infrastructure, ensuring that tools and systems are compatible, and that users can effectively communicate through these platforms.",
+      "studyPath": "Bachelor's or Master's Degree in Information Technology, Computer Science, or System Integration (4–6 years)."
+    },
+    {
+      "career": "Enterprise Communication Systems Consultant",
+      "description": "Provide consulting services to large organizations, helping them select, implement, and manage communication technologies, ensuring efficient use of digital tools to support business objectives.",
+      "studyPath": "Master's Degree in Information Technology, Communication Systems, or Business Administration (5–6 years)."
+    }
+  ]
+}
+,
+ "talking_helping_talk_short": {
+  "title": "Assisting Communication Facilitator",
+  "desc": "Ideal for students who enjoy helping others express themselves and facilitating clear communication, particularly in environments where individuals may need support to communicate their ideas or concerns effectively.",
+  "careers": [
+    {
+      "career": "Communication Support Worker",
+      "description": "Assist individuals with communication challenges, including those with speech or hearing impairments, ensuring they can express themselves clearly in various social or professional settings.",
+      "studyPath": "Certificate in Communication Support, Social Work, or Disability Services (1–2 years)."
+    },
+    {
+      "career": "Counseling Communication Assistant",
+      "description": "Support counselors or therapists in helping clients communicate effectively during sessions, assisting in clarifying thoughts and ensuring the clients’ messages are conveyed appropriately.",
+      "studyPath": "Diploma in Counseling, Communication, or Psychology (2–3 years)."
+    },
+    {
+      "career": "Client Communication Liaison",
+      "description": "Serve as a point of contact for clients in need of communication assistance, ensuring that their concerns and needs are properly conveyed to relevant parties, ensuring smooth communication in business or social contexts.",
+      "studyPath": "Certificate or Diploma in Customer Service, Public Relations, or Communication (1–2 years)."
+    }
+  ]
+}
+,
+ "talking_helping_talk_long": {
+  "title": "Advanced Communication Support Specialist",
+  "desc": "Ideal for students who are interested in providing high-level communication support in professional, healthcare, or educational settings, working to help individuals express themselves clearly and confidently in complex situations.",
+  "careers": [
+    {
+      "career": "Speech-Language Pathologist (Advanced)",
+      "description": "Provide advanced speech therapy services to individuals with communication disorders, focusing on improving speech, language, and swallowing skills in diverse populations, including those with neurological disorders.",
+      "studyPath": "Master's or Doctoral Degree in Speech-Language Pathology (6–8 years)."
+    },
+    {
+      "career": "Communication Therapy Specialist",
+      "description": "Assist individuals in overcoming severe communication barriers, providing tailored therapeutic programs that focus on enhancing speech, social interaction, and cognitive communication skills in complex settings.",
+      "studyPath": "Master's Degree in Communication Disorders, Speech Therapy, or Special Education (5–6 years)."
+    },
+    {
+      "career": "Mental Health Communication Advisor",
+      "description": "Provide communication support to individuals with mental health challenges, helping them articulate their needs and ensuring that they are understood by mental health professionals and caregivers.",
+      "studyPath": "Master's or Doctoral Degree in Psychology, Social Work, or Mental Health Counseling (5–8 years)."
+    }
+  ]
+}
+,"talking_helping_observe_short": {
+  "title": "Communication Observation Assistant",
+  "desc": "Ideal for students who enjoy observing and understanding communication dynamics, assisting professionals in identifying communication patterns and providing insights on improving communication effectiveness.",
+  "careers": [
+    {
+      "career": "Behavioral Observation Specialist",
+      "description": "Observe and analyze communication behaviors in various settings, helping to identify communication issues or areas of improvement, especially in social or educational environments.",
+      "studyPath": "Certificate in Behavioral Science, Communication Studies, or Psychology (1–2 years)."
+    },
+    {
+      "career": "Communication Research Assistant",
+      "description": "Assist in conducting research related to communication patterns, helping to gather data, observe interactions, and contribute to studies on effective communication methods in different contexts.",
+      "studyPath": "Diploma in Communication Studies, Social Research, or Psychology (2 years)."
+    },
+    {
+      "career": "Human Interaction Analyst",
+      "description": "Observe human interactions to provide insights into how communication flows within teams or organizations, focusing on identifying and solving issues related to group dynamics.",
+      "studyPath": "Certificate in Social Psychology, Communication Studies, or Organizational Behavior (1–2 years)."
+    }
+  ]
+}
+,
+  "talking_helping_observe_long": {
+  "title": "Advanced Communication Observation Specialist",
+  "desc": "Ideal for students who wish to specialize in advanced observation techniques, analyzing and improving communication strategies at a higher level in professional, healthcare, or educational environments.",
+  "careers": [
+    {
+      "career": "Communication Researcher",
+      "description": "Lead studies and observations on communication strategies in diverse environments, producing reports and insights that help improve how organizations, teams, or individuals communicate effectively.",
+      "studyPath": "Master's or Doctoral Degree in Communication Research, Behavioral Science, or Social Psychology (5–8 years)."
+    },
+    {
+      "career": "Organizational Communication Consultant",
+      "description": "Provide expert advice on improving internal communication within organizations, using observation and data analysis to enhance team interactions, decision-making, and communication processes.",
+      "studyPath": "Master's Degree in Organizational Communication, Business Administration, or Management (5–6 years)."
+    },
+    {
+      "career": "Human Factors Communication Specialist",
+      "description": "Study human communication in complex systems, analyzing interactions between people and technology, and offering recommendations to improve communication in tech-driven or healthcare settings.",
+      "studyPath": "Master's or Doctoral Degree in Human Factors, Communication Systems, or Cognitive Psychology (5–8 years)."
+    }
+  ]
+}
+,
+ "talking_creating_hands_short": {
+  "title": "Creative Communication Specialist",
+  "desc": "Ideal for students who enjoy using hands-on techniques to assist others in expressing themselves, utilizing arts, crafts, and interactive methods to promote communication.",
+  "careers": [
+    {
+      "career": "Art Therapist",
+      "description": "Use art and creative techniques to help individuals express their thoughts and emotions, especially in therapeutic settings, promoting mental health and personal growth.",
+      "studyPath": "Master's Degree in Art Therapy or Counseling (5–6 years)."
+    },
+    {
+      "career": "Creative Workshop Facilitator",
+      "description": "Design and lead workshops that help participants express themselves through creative methods such as drawing, sculpting, or hands-on crafts, often in group settings.",
+      "studyPath": "Diploma or Certificate in Creative Arts, Facilitation, or Adult Education (1–2 years)."
+    },
+    {
+      "career": "Communication Arts Teacher",
+      "description": "Teach students how to use creative and artistic methods to communicate ideas, fostering skills in both verbal and non-verbal communication through art and design.",
+      "studyPath": "Bachelor's Degree in Fine Arts, Education, or Communication (3–4 years)."
+    }
+  ]
+}
+,
+  "talking_creating_hands_long": {
+  "title": "Advanced Creative Communication Specialist",
+  "desc": "Ideal for students who are interested in advanced creative methodologies, using hands-on techniques to help individuals and groups communicate complex ideas or emotions through the arts, crafts, and interactive media.",
+  "careers": [
+    {
+      "career": "Expressive Arts Therapist",
+      "description": "Use advanced creative therapies, including music, dance, and visual arts, to help individuals overcome emotional or psychological challenges, providing a therapeutic outlet for self-expression.",
+      "studyPath": "Master's or Doctoral Degree in Expressive Arts Therapy, Psychology, or Counseling (5–8 years)."
+    },
+    {
+      "career": "Creative Arts Director",
+      "description": "Lead and manage creative communication initiatives in organizations, using innovative arts-based techniques to promote effective communication, team-building, and problem-solving.",
+      "studyPath": "Master's Degree in Fine Arts, Creative Arts, or Organizational Leadership (5–6 years)."
+    },
+    {
+      "career": "Interactive Media Specialist",
+      "description": "Design and implement interactive art installations, workshops, or multimedia experiences that use hands-on creative methods to communicate messages or tell stories in immersive environments.",
+      "studyPath": "Bachelor's or Master's Degree in Interactive Media, Digital Arts, or Media Design (4–6 years)."
+    }
+  ]
+}
+,
+  "talking_creating_computer_short": {
+  "title": "Digital Communication Specialist",
+  "desc": "Ideal for students who want to use technology and digital platforms to facilitate communication, creating tools and systems that help people communicate more effectively in various digital spaces.",
+  "careers": [
+    {
+      "career": "Digital Content Creator",
+      "description": "Create and manage digital content for websites, social media, and other online platforms, helping individuals or brands communicate their message effectively to a broad audience.",
+      "studyPath": "Diploma or Bachelor's Degree in Digital Media, Communication, or Marketing (2–4 years)."
+    },
+    {
+      "career": "UX/UI Designer",
+      "description": "Design user-friendly digital interfaces, ensuring that communication platforms are accessible, engaging, and easy to navigate for all users.",
+      "studyPath": "Bachelor's Degree in User Experience Design, Graphic Design, or Interactive Media (3–4 years)."
+    },
+    {
+      "career": "Social Media Manager",
+      "description": "Oversee and manage communication across social media platforms, developing strategies to engage users and communicate brand messages effectively.",
+      "studyPath": "Bachelor's Degree in Marketing, Communication, or Digital Media (3–4 years)."
+    }
+  ]
+}
+,
+  "talking_creating_computer_long": {
+  "title": "Advanced Digital Communication Specialist",
+  "desc": "Ideal for students interested in leveraging advanced technology and digital platforms to enhance and create innovative communication solutions, focusing on high-level applications in interactive media, virtual environments, and global communication systems.",
+  "careers": [
+    {
+      "career": "Digital Communications Strategist",
+      "description": "Develop and implement comprehensive digital communication strategies for organizations, utilizing advanced technology and platforms to engage audiences, enhance brand presence, and deliver effective messages across various digital channels.",
+      "studyPath": "Master's Degree in Digital Communication, Marketing, or Media Strategy (5–6 years)."
+    },
+    {
+      "career": "Virtual Reality Content Developer",
+      "description": "Create and design virtual reality experiences that facilitate communication and interaction in immersive environments, from educational applications to corporate training tools.",
+      "studyPath": "Master's Degree in Virtual Reality, Game Design, or Interactive Media (5–6 years)."
+    },
+    {
+      "career": "Artificial Intelligence Communication Specialist",
+      "description": "Use AI and machine learning to develop communication tools, platforms, or bots that facilitate communication, automate tasks, and improve user interaction in digital spaces.",
+      "studyPath": "Master's Degree in Artificial Intelligence, Communication Technologies, or Computer Science (5–6 years)."
+    }
+  ]
+}
+,
+  "talking_creating_talk_short": {
+  "title": "Verbal Communication Specialist",
+  "desc": "Ideal for students who are passionate about helping people express themselves effectively through speech, utilizing verbal techniques and strategies to assist in both everyday and professional communication.",
+  "careers": [
+    {
+      "career": "Public Speaking Coach",
+      "description": "Help individuals improve their public speaking and presentation skills, teaching techniques to engage an audience, structure their messages, and communicate effectively.",
+      "studyPath": "Certificate or Bachelor's Degree in Communication, Public Speaking, or Theater (1–3 years)."
+    },
+    {
+      "career": "Voice-over Artist",
+      "description": "Provide voice work for advertisements, animated characters, audio books, and more, using vocal techniques to bring scripts to life and create compelling verbal narratives.",
+      "studyPath": "Certificate or Bachelor's Degree in Voice Acting, Theater, or Audio Production (1–3 years)."
+    },
+    {
+      "career": "Language and Speech Instructor",
+      "description": "Teach language, pronunciation, and speech techniques to individuals looking to improve their verbal communication skills for personal or professional growth.",
+      "studyPath": "Bachelor's Degree in Linguistics, Communication, or Education (3–4 years)."
+    }
+  ]
+}
+,
+  "talking_creating_talk_long": {
+  "title": "Advanced Verbal Communication Specialist",
+  "desc": "Ideal for students who wish to specialize in advanced verbal communication techniques, working with individuals and organizations to refine speech, persuasion, and public speaking in high-level contexts such as corporate, educational, and media environments.",
+  "careers": [
+    {
+      "career": "Speech-Language Pathologist",
+      "description": "Work with individuals to assess and improve speech and language skills, helping those with communication disorders to enhance their ability to express themselves effectively.",
+      "studyPath": "Master's Degree in Speech-Language Pathology or Communication Disorders (5–6 years)."
+    },
+    {
+      "career": "Corporate Communication Consultant",
+      "description": "Advise organizations on how to improve internal and external communication strategies, focusing on effective speech delivery, persuasive communication, and leadership development.",
+      "studyPath": "Master's Degree in Business Communication, Organizational Leadership, or Communication Strategy (5–6 years)."
+    },
+    {
+      "career": "Media Personality or Presenter",
+      "description": "Host or present in various media formats (TV, radio, podcasts, etc.), using advanced verbal communication techniques to engage audiences, convey information, and represent brands or concepts in the media space.",
+      "studyPath": "Bachelor's or Master's Degree in Journalism, Media Studies, or Communications (4–6 years)."
+    }
+  ]
+}
+,
+  "talking_creating_observe_short": {
+  "title": "Observational Communication Specialist",
+  "desc": "Ideal for students who are interested in understanding how people communicate through observation, studying non-verbal cues, and using those insights to improve communication strategies in various settings.",
+  "careers": [
+    {
+      "career": "Behavioral Researcher",
+      "description": "Study human behavior and communication patterns, using observation to understand social interactions, which can improve communication strategies and help in psychological or social studies.",
+      "studyPath": "Bachelor's or Master's Degree in Psychology, Behavioral Science, or Sociology (3–5 years)."
+    },
+    {
+      "career": "Human Factors Specialist",
+      "description": "Analyze how humans interact with products, systems, and environments, using observational methods to enhance user experience and communication within design, engineering, and healthcare contexts.",
+      "studyPath": "Bachelor's or Master's Degree in Human Factors Engineering, Cognitive Psychology, or Ergonomics (4–6 years)."
+    },
+    {
+      "career": "Market Research Analyst",
+      "description": "Observe and analyze consumer behavior, using observational techniques to gain insights into how individuals interact with products or services, and translate that into actionable communication and marketing strategies.",
+      "studyPath": "Bachelor's or Master's Degree in Marketing, Business, or Research Methods (3–5 years)."
+    }
+  ]
+}
+,
+  "talking_creating_observe_long": {
+  "title": "Advanced Observational Communication Specialist",
+  "desc": "Ideal for students interested in specializing in high-level observational communication techniques, focusing on detailed analysis of verbal and non-verbal communication in complex settings, and applying these insights to influence behavior, enhance communication effectiveness, and foster better interpersonal relationships.",
+  "careers": [
+    {
+      "career": "Forensic Behavioral Analyst",
+      "description": "Work with law enforcement agencies to observe and analyze criminal behavior and communication patterns, using advanced observational techniques to help in criminal investigations and profiling.",
+      "studyPath": "Master's or Doctoral Degree in Forensic Psychology, Criminal Justice, or Behavioral Science (5–7 years)."
+    },
+    {
+      "career": "Organizational Development Consultant",
+      "description": "Use observational communication skills to analyze and improve workplace dynamics, helping organizations develop better communication strategies, resolve conflicts, and enhance overall organizational culture.",
+      "studyPath": "Master's Degree in Organizational Development, Business Administration, or Communication (5–6 years)."
+    },
+    {
+      "career": "Cultural Anthropologist",
+      "description": "Study human cultures by observing communication practices, rituals, and behaviors in various communities, using findings to help inform cross-cultural communication and policies in global organizations or government bodies.",
+      "studyPath": "Master's or Doctoral Degree in Anthropology, Sociology, or International Relations (5–7 years)."
+    }
+  ]
+}
+,
+  "talking_managing_hands_short": {
+  "title": "Verbal Communication Manager",
+  "desc": "Ideal for students who want to take on leadership roles in communication, managing teams or projects focused on verbal communication strategies, enhancing team coordination, and ensuring clear, effective communication across various platforms.",
+  "careers": [
+    {
+      "career": "Communication Project Manager",
+      "description": "Oversee and coordinate communication projects, ensuring that all stakeholders, teams, and resources align to effectively deliver verbal and media communication solutions.",
+      "studyPath": "Bachelor's or Master's Degree in Communication, Project Management, or Business Administration (3–5 years)."
+    },
+    {
+      "career": "Team Communication Leader",
+      "description": "Lead communication teams in organizations, ensuring team members are equipped with the skills and tools needed to manage internal and external communication effectively.",
+      "studyPath": "Bachelor's or Master's Degree in Organizational Communication or Management (3–5 years)."
+    },
+    {
+      "career": "Speech Communication Director",
+      "description": "Direct and manage the communication strategies for organizations, particularly focusing on speeches, presentations, and verbal communication in high-level corporate or public environments.",
+      "studyPath": "Bachelor's or Master's Degree in Public Relations, Communication, or Media Studies (3–5 years)."
+    }
+  ]
+}
+,
+  "talking_managing_hands_long": {
+  "title": "Advanced Verbal Communication Manager",
+  "desc": "Ideal for students seeking to manage high-level verbal communication strategies within large-scale organizations, focusing on leadership in communication, strategic planning, and overseeing complex communication projects that require intricate coordination and advanced verbal techniques.",
+  "careers": [
+    {
+      "career": "Chief Communication Officer",
+      "description": "Lead an organization’s entire communication strategy, including internal and external communications, media relations, and crisis management, ensuring the company’s message is clear, consistent, and aligned with business goals.",
+      "studyPath": "Master's Degree in Communication, Public Relations, or Business Administration (5–6 years)."
+    },
+    {
+      "career": "Corporate Speech and Media Director",
+      "description": "Direct and manage the speech, media, and public communication strategies for executives, ensuring effective verbal and media communication in both internal and external settings for a global organization.",
+      "studyPath": "Master's Degree in Media Studies, Communication, or Corporate Strategy (5–6 years)."
+    },
+    {
+      "career": "Global Communication Strategist",
+      "description": "Develop and implement communication strategies for multinational organizations, overseeing cross-cultural communication, public speaking engagements, and high-level verbal interactions in global settings.",
+      "studyPath": "Master's or Doctoral Degree in Global Communication, International Relations, or Business Communication (5–7 years)."
+    }
+  ]
+}
+,
+  "talking_managing_computer_short": {
+  "title": "Digital Communication Manager",
+  "desc": "Ideal for students interested in managing communication strategies through digital platforms, leveraging technology to enhance verbal communication, oversee virtual teams, and implement digital tools for online communication and media.",
+  "careers": [
+    {
+      "career": "Social Media Manager",
+      "description": "Oversee and manage a company’s social media strategy, ensuring effective communication across various platforms, engaging with the audience, and enhancing the brand's presence through digital communication.",
+      "studyPath": "Bachelor's Degree in Digital Communication, Marketing, or Social Media Strategy (3–4 years)."
+    },
+    {
+      "career": "Digital Content Strategist",
+      "description": "Plan, create, and manage content for digital platforms, ensuring that the content aligns with the communication goals and engages the audience effectively using verbal communication techniques.",
+      "studyPath": "Bachelor's Degree in Digital Media, Marketing, or Content Creation (3–4 years)."
+    },
+    {
+      "career": "Virtual Team Communication Manager",
+      "description": "Manage the communication flow within virtual teams, ensuring that digital tools and verbal communication strategies are utilized effectively to maintain productivity and cohesion within remote teams.",
+      "studyPath": "Bachelor's or Master's Degree in Communication, Business Administration, or Remote Team Management (3–5 years)."
+    }
+  ]
+}
+,
+  "talking_managing_computer_long": {
+  "title": "Advanced Digital Communication Manager",
+  "desc": "Ideal for students seeking to specialize in advanced digital communication management, overseeing complex online communication strategies, digital content creation, and virtual team leadership across multiple platforms and technologies.",
+  "careers": [
+    {
+      "career": "Chief Digital Officer",
+      "description": "Lead an organization’s digital communication strategy, overseeing digital content, social media management, online presence, and virtual communication for both internal teams and external audiences on a global scale.",
+      "studyPath": "Master's Degree in Digital Media, Communication, or Business Administration (5–6 years)."
+    },
+    {
+      "career": "Global Virtual Communication Director",
+      "description": "Oversee and manage virtual communication strategies for multinational organizations, ensuring effective communication across digital platforms, coordinating international teams, and managing remote collaboration tools.",
+      "studyPath": "Master's Degree in Global Communication, Digital Strategy, or International Business (5–6 years)."
+    },
+    {
+      "career": "Digital Media Consultant",
+      "description": "Provide expert advice on the integration of digital communication strategies for businesses and organizations, helping them enhance their online communication channels, improve engagement, and streamline digital content delivery.",
+      "studyPath": "Master's Degree in Digital Media, Communication Strategy, or Technology Management (5–6 years)."
+    }
+  ]
+}
+,
+  "talking_managing_talk_short": {
+  "title": "Verbal Communication Leader",
+  "desc": "Ideal for students who are interested in leading teams focused on verbal communication strategies, managing projects that involve public speaking, presentations, and other verbal communication efforts in a variety of professional settings.",
+  "careers": [
+    {
+      "career": "Public Speaking Coach",
+      "description": "Work with individuals or groups to develop and improve their verbal communication skills, particularly in public speaking, presentations, and speeches.",
+      "studyPath": "Bachelor's or Master's Degree in Communication, Speech, or Education (3–5 years)."
+    },
+    {
+      "career": "Corporate Communication Manager",
+      "description": "Manage the communication strategies within a company, focusing on internal and external verbal communication, including meetings, presentations, and speeches.",
+      "studyPath": "Bachelor's or Master's Degree in Business Administration, Communication, or Marketing (3–5 years)."
+    },
+    {
+      "career": "Event Communication Coordinator",
+      "description": "Plan and manage verbal communication for events, including speeches, presentations, and other communication efforts for conferences, seminars, and corporate events.",
+      "studyPath": "Bachelor's Degree in Event Management, Communication, or Public Relations (3–4 years)."
+    }
+  ]
+}
+,
+  "talking_managing_talk_long": {
+  "title": "Advanced Verbal Communication Leader",
+  "desc": "Ideal for students aiming to lead large-scale verbal communication strategies within organizations, with an emphasis on managing high-level public speaking, corporate communications, and complex verbal interactions across various professional environments.",
+  "careers": [
+    {
+      "career": "Executive Speech Coach",
+      "description": "Work with high-ranking executives to prepare and refine their public speaking skills, ensuring their communication aligns with the company’s values and enhances their leadership presence.",
+      "studyPath": "Master's Degree in Communication, Leadership, or Public Speaking (5–6 years)."
+    },
+    {
+      "career": "Corporate Communication Director",
+      "description": "Oversee an organization’s entire communication strategy, focusing on verbal communication efforts for both internal teams and public-facing communication, ensuring consistency across all levels.",
+      "studyPath": "Master's Degree in Corporate Communication, Public Relations, or Business Administration (5–6 years)."
+    },
+    {
+      "career": "International Relations Communication Manager",
+      "description": "Lead communication efforts for an organization in international settings, managing verbal and public communication across different countries, cultures, and languages to ensure effective global relations.",
+      "studyPath": "Master's or Doctoral Degree in International Relations, Communication, or Global Studies (5–7 years)."
+    }
+  ]
+}
+,
+ "talking_managing_talk_long": {
+  "title": "Advanced Verbal Communication Leader",
+  "desc": "Ideal for students aiming to lead large-scale verbal communication strategies within organizations, with an emphasis on managing high-level public speaking, corporate communications, and complex verbal interactions across various professional environments.",
+  "careers": [
+    {
+      "career": "Executive Speech Coach",
+      "description": "Work with high-ranking executives to prepare and refine their public speaking skills, ensuring their communication aligns with the company’s values and enhances their leadership presence.",
+      "studyPath": "Master's Degree in Communication, Leadership, or Public Speaking (5–6 years)."
+    },
+    {
+      "career": "Corporate Communication Director",
+      "description": "Oversee an organization’s entire communication strategy, focusing on verbal communication efforts for both internal teams and public-facing communication, ensuring consistency across all levels.",
+      "studyPath": "Master's Degree in Corporate Communication, Public Relations, or Business Administration (5–6 years)."
+    },
+    {
+      "career": "International Relations Communication Manager",
+      "description": "Lead communication efforts for an organization in international settings, managing verbal and public communication across different countries, cultures, and languages to ensure effective global relations.",
+      "studyPath": "Master's or Doctoral Degree in International Relations, Communication, or Global Studies (5–7 years)."
+    }
+  ]
+}
+,
+"talking_managing_computer_long": {
+  "title": "Advanced Digital Communication Manager",
+  "desc": "Ideal for students seeking to specialize in advanced digital communication management, overseeing complex online communication strategies, digital content creation, and virtual team leadership across multiple platforms and technologies.",
+  "careers": [
+    {
+      "career": "Chief Digital Officer",
+      "description": "Lead an organization’s digital communication strategy, overseeing digital content, social media management, online presence, and virtual communication for both internal teams and external audiences on a global scale.",
+      "studyPath": "Master's Degree in Digital Media, Communication, or Business Administration (5–6 years)."
+    },
+    {
+      "career": "Global Virtual Communication Director",
+      "description": "Oversee and manage virtual communication strategies for multinational organizations, ensuring effective communication across digital platforms, coordinating international teams, and managing remote collaboration tools.",
+      "studyPath": "Master's Degree in Global Communication, Digital Strategy, or International Business (5–6 years)."
+    },
+    {
+      "career": "Digital Media Consultant",
+      "description": "Provide expert advice on the integration of digital communication strategies for businesses and organizations, helping them enhance their online communication channels, improve engagement, and streamline digital content delivery.",
+      "studyPath": "Master's Degree in Digital Media, Communication Strategy, or Technology Management (5–6 years)."
+    }
+  ]
+}
+};
+
+    const result = careerSuggestions[combo] || {
+      title: "Career Explorer",
+      desc: "We are working on more suggestions based on your answers."
+    };
+
+    document.getElementById("resultBox").innerHTML = `
+      <h3 class="text-2xl font-bold mb-2">${result.title}</h3>
+      <p class="mb-4">${result.desc}</p>
+      <ul class="list-disc pl-6 text-left mb-4">
+        ${result.careers.map(career => `
+          <li>
+            <strong>${career.career}</strong>: ${career.description}
+            <br><em>What to Study: ${career.studyPath}</em>
+          </li>`).join("")}
+      </ul>
+    <div class="flex justify-center mt-6">
+  <a href="https://denser.ai/u/embed/dd3ba2f3-cd1a-479e-b012-8b5096258019" target="_blank">
+    <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+      Explore
+    </button>
+  </a>
+</div>
+
+    `;
+  </script>
+</body>
+</html>
+
